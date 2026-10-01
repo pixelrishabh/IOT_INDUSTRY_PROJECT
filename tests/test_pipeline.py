@@ -236,3 +236,21 @@ def test_mqtt_telemetry_fault_to_diagnosis_flow(detector):
     _last_diagnosis_tracker[well_id] = (event_name, time.time())
     assert should_trigger_diagnosis(well_id, event_name) is False
 
+
+def test_database_dashboard_queries():
+    """Verify database query helper functions for the dashboard."""
+    from database.db import get_telemetry_stats, get_distinct_well_ids, get_recent_telemetry_rows
+
+    stats = get_telemetry_stats()
+    assert isinstance(stats, dict)
+    assert "total_records" in stats
+    assert "total_faults" in stats
+    assert "total_wells" in stats
+
+    wells = get_distinct_well_ids()
+    assert isinstance(wells, list)
+
+    rows = get_recent_telemetry_rows(limit=5)
+    assert isinstance(rows, list)
+
+

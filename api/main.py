@@ -154,6 +154,28 @@ def ingest_telemetry(telemetry: TelemetryInput):
         raise HTTPException(status_code=500, detail=f"Telemetry ingestion error: {str(e)}")
 
 
+@app.get("/stats")
+def get_stats():
+    """Retrieve high-level telemetry and fault statistics from PostgreSQL database."""
+    from database.db import get_telemetry_stats
+    return get_telemetry_stats()
+
+
+@app.get("/wells")
+def get_wells():
+    """Retrieve list of distinct monitored well identifiers."""
+    from database.db import get_distinct_well_ids
+    return {"wells": get_distinct_well_ids()}
+
+
+@app.get("/incidents")
+def get_incidents(limit: int = 50, well_id: Optional[str] = None):
+    """Retrieve recent fault incidents logged in PostgreSQL."""
+    from database.db import get_recent_incidents
+    return {"incidents": get_recent_incidents(limit=limit, well_id=well_id)}
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("api.main:app", host="0.0.0.0", port=8000, reload=True)
+
