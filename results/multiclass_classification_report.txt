@@ -1,0 +1,43 @@
+PETROBRAS 3W DATASET 2.0.0 - AUDITED MULTI-CLASS FAULT CLASSIFICATION REPORT
+===========================================================================
+
+Model: RandomForestClassifier (class_weight='balanced', max_depth=14)
+Training Time: 6.70s
+Accuracy   : 0.7276
+Macro Prec : 0.5827
+Macro Rec  : 0.5905
+Macro F1   : 0.5657
+Weighted F1: 0.7108
+
+Transient Event Accuracy  : 0.5080 (Support: 54934)
+Established Event Accuracy: 0.9056 (Support: 11625)
+
+Per-Class Classification Report:
+                   precision    recall  f1-score   support
+
+           Normal     0.6336    0.9298    0.7536     49457
+   Abrupt BSW Inc     0.0000    0.0000    0.0000       242
+    Spurious DHSV     0.9982    0.9859    0.9920       566
+  Severe Slugging     0.5117    0.9435    0.6635      1788
+ Flow Instability     0.9010    0.9781    0.9380      8359
+  Rapid Prod Loss     0.9176    0.9914    0.9530       696
+  Quick PCK Restr     0.0000    0.0000    0.0000        15
+   Scaling in PCK     0.8662    0.4166    0.5626     33444
+Hydrate Prod Line     0.9986    0.6598    0.7946     20290
+Hydrate Serv Line     0.0000    0.0000    0.0000      1159
+
+         accuracy                         0.7276    116016
+        macro avg     0.5827    0.5905    0.5657    116016
+     weighted avg     0.7776    0.7276    0.7108    116016
+
+Confusion Matrix (Events 0-9):
+[[45983    90     0   303   796    62    12  2146    19    46]
+ [  242     0     0     0     0     0     0     0     0     0]
+ [    7     0   558     0     1     0     0     0     0     0]
+ [    0     0     0  1687   101     0     0     0     0     0]
+ [    6     0     0   170  8176     0     0     7     0     0]
+ [    6     0     0     0     0   690     0     0     0     0]
+ [   15     0     0     0     0     0     0     0     0     0]
+ [19395   115     0     0     0     0     0 13934     0     0]
+ [ 6902     0     1     0     0     0     0     0 13387     0]
+ [   22     0     0  1137     0     0     0     0     0     0]]

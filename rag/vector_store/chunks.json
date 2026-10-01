@@ -1,0 +1,722 @@
+[
+  {
+    "chunk_id": "event_0_normal_operation_1",
+    "doc_name": "event_0_normal_operation.md",
+    "doc_title": "Normal Operation (Baseline State) - Offshore Production Well",
+    "section_title": "Overview",
+    "event_id": 0,
+    "content": "Document: Normal Operation (Baseline State) - Offshore Production Well\nSection: Overview\nEvent ID: 0\n\n# Normal Operation (Baseline State) - Offshore Production Well"
+  },
+  {
+    "chunk_id": "event_0_normal_operation_2",
+    "doc_name": "event_0_normal_operation.md",
+    "doc_title": "Normal Operation (Baseline State) - Offshore Production Well",
+    "section_title": "1. Event Name & Definition",
+    "event_id": 0,
+    "content": "Document: Normal Operation (Baseline State) - Offshore Production Well\nSection: 1. Event Name & Definition\nEvent ID: 0\n\n## 1. Event Name & Definition\n- **Event Identifier:** Event 0 - Normal Operation\n- **Category:** Steady-State Production\n- **Standard Operating Window:** Stable multiphase flow from subsea reservoir to topside production separator with all actuated valves in nominal command position."
+  },
+  {
+    "chunk_id": "event_0_normal_operation_3",
+    "doc_name": "event_0_normal_operation.md",
+    "doc_title": "Normal Operation (Baseline State) - Offshore Production Well",
+    "section_title": "2. Physical Description & Meaning",
+    "event_id": 0,
+    "content": "Document: Normal Operation (Baseline State) - Offshore Production Well\nSection: 2. Physical Description & Meaning\nEvent ID: 0\n\n## 2. Physical Description & Meaning\nDuring normal operation, the well operates in a stable thermodynamic and hydraulic regime. Fluid flows continuously from the formation through the perforations, up the production tubing, past the Downhole Safety Valve (DHSV), across the subsea Christmas Tree, through the Production Choke (PCK), and along the production flowline to the platform."
+  },
+  {
+    "chunk_id": "event_0_normal_operation_4",
+    "doc_name": "event_0_normal_operation.md",
+    "doc_title": "Normal Operation (Baseline State) - Offshore Production Well",
+    "section_title": "3. Typical Sensor Symptoms & Nominal Ranges",
+    "event_id": 0,
+    "content": "Document: Normal Operation (Baseline State) - Offshore Production Well\nSection: 3. Typical Sensor Symptoms & Nominal Ranges\nEvent ID: 0\n\n## 3. Typical Sensor Symptoms & Nominal Ranges\n- **P-PDG (Downhole Gauge Pressure):** Stable, within expected drawdown range (typically 200 - 350 bar depending on reservoir depth and depletion).\n- **P-TPT (Transducer Pressure):** Stable upstream of the wellhead (typically 120 - 200 bar).\n- **T-TPT (Transducer Temperature):** Stable operating temperature (typically 60 - 90 \u00b0C).\n- **P-MON-CKP (Upstream Choke Pressure):** Stable, tracking tubing head pressure with negligible short-term variance.\n- **T-JUS-CKP (Downstream Choke Temperature):** Stable, reflecting steady Joule-Thomson expansion across the choke orifice.\n- **P-ANULAR (Annulus 'A' Pressure):** Low and stable, showing no tubing-to-annulus communication.\n- **QGL (Gas Lift Flow Rate):** Constant rate matching the lift allocation setpoint (if gas-lifted).\n- **ABER-CKP / ABER-CKGL:** Fixed at steady supervisory setpoint (e.g., 40% - 80%)."
+  },
+  {
+    "chunk_id": "event_0_normal_operation_5",
+    "doc_name": "event_0_normal_operation.md",
+    "doc_title": "Normal Operation (Baseline State) - Offshore Production Well",
+    "section_title": "4. Normal Operating Variations",
+    "event_id": 0,
+    "content": "Document: Normal Operation (Baseline State) - Offshore Production Well\nSection: 4. Normal Operating Variations\nEvent ID: 0\n\n## 4. Normal Operating Variations\n- Minor diurnal temperature fluctuations in seawater surrounding the riser/flowline.\n- Controlled ramp-ups or choke adjustments initiated by operators during well testing."
+  },
+  {
+    "chunk_id": "event_0_normal_operation_6",
+    "doc_name": "event_0_normal_operation.md",
+    "doc_title": "Normal Operation (Baseline State) - Offshore Production Well",
+    "section_title": "5. Diagnostic Verification Steps",
+    "event_id": 0,
+    "content": "Document: Normal Operation (Baseline State) - Offshore Production Well\nSection: 5. Diagnostic Verification Steps\nEvent ID: 0\n\n## 5. Diagnostic Verification Steps\n1. Verify that sensor variance (`std_dev`) over 60s windows remains within baseline noise threshold (< 1.5% mean).\n2. Check differential pressure across PCK ($\\Delta P = P_{MON} - P_{JUS}$) aligns with production curves.\n3. Confirm Annulus 'A' pressure does not exhibit sustained linear build-up."
+  },
+  {
+    "chunk_id": "event_0_normal_operation_7",
+    "doc_name": "event_0_normal_operation.md",
+    "doc_title": "Normal Operation (Baseline State) - Offshore Production Well",
+    "section_title": "6. Recommended Operator Actions",
+    "event_id": 0,
+    "content": "Document: Normal Operation (Baseline State) - Offshore Production Well\nSection: 6. Recommended Operator Actions\nEvent ID: 0\n\n## 6. Recommended Operator Actions\n- Maintain regular routine monitoring of downhole pressure and temperature trends.\n- Log daily production rates (oil, water, gas) and compare against reservoir management targets.\n- Ensure routine DHSV trip tests and choke calibration schedules are adhered to."
+  },
+  {
+    "chunk_id": "event_0_normal_operation_8",
+    "doc_name": "event_0_normal_operation.md",
+    "doc_title": "Normal Operation (Baseline State) - Offshore Production Well",
+    "section_title": "7. Safety Considerations",
+    "event_id": 0,
+    "content": "Document: Normal Operation (Baseline State) - Offshore Production Well\nSection: 7. Safety Considerations\nEvent ID: 0\n\n## 7. Safety Considerations\n- Maintain continuous watchdog on high-pressure alarms and emergency shutdown (ESD) interlocks.\n- Ensure subsea valve hydraulic accumulator pressures remain within certified API 14A/14B operating margins."
+  },
+  {
+    "chunk_id": "event_0_normal_operation_9",
+    "doc_name": "event_0_normal_operation.md",
+    "doc_title": "Normal Operation (Baseline State) - Offshore Production Well",
+    "section_title": "8. Sensor Correlation Rules",
+    "event_id": 0,
+    "content": "Document: Normal Operation (Baseline State) - Offshore Production Well\nSection: 8. Sensor Correlation Rules\nEvent ID: 0\n\n## 8. Sensor Correlation Rules\n- $P_{PDG} > P_{TPT} > P_{MON-CKP} > P_{JUS-CKP}$ (Monotonic hydraulic gradient).\n- Steady positive correlation between production choke opening ($ABER-CKP$) and wellhead pressure response."
+  },
+  {
+    "chunk_id": "event_1_abrupt_increase_bsw_1",
+    "doc_name": "event_1_abrupt_increase_bsw.md",
+    "doc_title": "Abrupt Increase of BSW (Basic Sediment and Water) - Event 1",
+    "section_title": "Overview",
+    "event_id": 1,
+    "content": "Document: Abrupt Increase of BSW (Basic Sediment and Water) - Event 1\nSection: Overview\nEvent ID: 1\n\n# Abrupt Increase of BSW (Basic Sediment and Water) - Event 1"
+  },
+  {
+    "chunk_id": "event_1_abrupt_increase_bsw_2",
+    "doc_name": "event_1_abrupt_increase_bsw.md",
+    "doc_title": "Abrupt Increase of BSW (Basic Sediment and Water) - Event 1",
+    "section_title": "1. Event Name & Definition",
+    "event_id": 1,
+    "content": "Document: Abrupt Increase of BSW (Basic Sediment and Water) - Event 1\nSection: 1. Event Name & Definition\nEvent ID: 1\n\n## 1. Event Name & Definition\n- **Event Identifier:** Event 1 (Transient: 101) - Abrupt Increase of BSW\n- **Category:** Fluid Influx / Reservoir Breakthrough\n- **Severity Level:** Moderate to High Operational Impact"
+  },
+  {
+    "chunk_id": "event_1_abrupt_increase_bsw_3",
+    "doc_name": "event_1_abrupt_increase_bsw.md",
+    "doc_title": "Abrupt Increase of BSW (Basic Sediment and Water) - Event 1",
+    "section_title": "2. Physical Description & Meaning",
+    "event_id": 1,
+    "content": "Document: Abrupt Increase of BSW (Basic Sediment and Water) - Event 1\nSection: 2. Physical Description & Meaning\nEvent ID: 1\n\n## 2. Physical Description & Meaning\nAn abrupt increase in Basic Sediment and Water (BSW) represents a sudden surge in the volumetric water cut / produced water fraction. Water has a significantly higher density (~1000 kg/m\u00b3) and heat capacity than crude oil and associated gas (~800 kg/m\u00b3). The introduction of a dense water column increases the hydrostatic pressure gradient in the production tubing, loading the well column and potentially killing the well's natural flow if lift pressure is insufficient."
+  },
+  {
+    "chunk_id": "event_1_abrupt_increase_bsw_4",
+    "doc_name": "event_1_abrupt_increase_bsw.md",
+    "doc_title": "Abrupt Increase of BSW (Basic Sediment and Water) - Event 1",
+    "section_title": "3. Typical Sensor Symptoms",
+    "event_id": 1,
+    "content": "Document: Abrupt Increase of BSW (Basic Sediment and Water) - Event 1\nSection: 3. Typical Sensor Symptoms\nEvent ID: 1\n\n## 3. Typical Sensor Symptoms\n- **P-PDG (Downhole Pressure):** Sharp increase in bottomhole flowing pressure due to higher hydrostatic head of the heavier fluid column.\n- **P-TPT / P-MON-CKP:** Steady or rapid decrease in wellhead pressure as hydrostatic loading suffocates flow velocity.\n- **T-TPT / T-JUS-CKP:** Noticeable thermal transient (often a gradual drop in topside temperature as liquid heat capacity changes thermal profile).\n- **QGL (Gas Lift):** If gas lifted, injected gas might struggle to maintain aeration against high water density, causing fluctuating gas lift backpressure.\n- **ABER-CKP:** May remain open while throughput rapidly drops."
+  },
+  {
+    "chunk_id": "event_1_abrupt_increase_bsw_5",
+    "doc_name": "event_1_abrupt_increase_bsw.md",
+    "doc_title": "Abrupt Increase of BSW (Basic Sediment and Water) - Event 1",
+    "section_title": "4. Possible Root Causes",
+    "event_id": 1,
+    "content": "Document: Abrupt Increase of BSW (Basic Sediment and Water) - Event 1\nSection: 4. Possible Root Causes\nEvent ID: 1\n\n## 4. Possible Root Causes\n1. **Water Coning / Fingering:** Rapid advancement of bottom-water or edge-water through high-permeability thief zones in the reservoir.\n2. **Casing / Tubing Breach:** Mechanical failure or corrosion leak in production casing allowing water from an adjacent aquifer zone into the tubing.\n3. **Zone Isolation Packer Failure:** Breakdown of downhole isolation elastomeric seals, exposing the wellbore to a high-pressure water-bearing formation.\n4. **Water Injection Breakthrough:** Direct communication with nearby water injection wells deployed for secondary recovery."
+  },
+  {
+    "chunk_id": "event_1_abrupt_increase_bsw_6",
+    "doc_name": "event_1_abrupt_increase_bsw.md",
+    "doc_title": "Abrupt Increase of BSW (Basic Sediment and Water) - Event 1",
+    "section_title": "5. Diagnostic Verification Steps",
+    "event_id": 1,
+    "content": "Document: Abrupt Increase of BSW (Basic Sediment and Water) - Event 1\nSection: 5. Diagnostic Verification Steps\nEvent ID: 1\n\n## 5. Diagnostic Verification Steps\n1. Compare $P_{PDG}$ vs $P_{TPT}$ differential: a sharp increase in $\\Delta P_{hydrostatic} = P_{PDG} - P_{TPT}$ confirms an increase in average fluid density inside the tubing.\n2. Check topside test separator water cut measurements and centrifuge grab samples.\n3. Review neighboring water injection rates and tracer monitoring data.\n4. Perform downhole production logging tool (PLT) or pulsed neutron logging to identify water entry depth."
+  },
+  {
+    "chunk_id": "event_1_abrupt_increase_bsw_7",
+    "doc_name": "event_1_abrupt_increase_bsw.md",
+    "doc_title": "Abrupt Increase of BSW (Basic Sediment and Water) - Event 1",
+    "section_title": "6. Recommended Operator Actions",
+    "event_id": 1,
+    "content": "Document: Abrupt Increase of BSW (Basic Sediment and Water) - Event 1\nSection: 6. Recommended Operator Actions\nEvent ID: 1\n\n## 6. Recommended Operator Actions\n1. Immediately adjust gas lift injection rate ($Q_{GL}$) upwards to reduce mixture density and assist fluid lift.\n2. Throttle production choke ($ABER-CKP$) if necessary to prevent severe topside separator level tripping.\n3. Route wellstream to test separator for continuous water-cut and emulsion monitoring.\n4. Initiate demulsifier and corrosion inhibitor chemical dosing adjustments topside."
+  },
+  {
+    "chunk_id": "event_1_abrupt_increase_bsw_8",
+    "doc_name": "event_1_abrupt_increase_bsw.md",
+    "doc_title": "Abrupt Increase of BSW (Basic Sediment and Water) - Event 1",
+    "section_title": "7. Critical Safety Considerations",
+    "event_id": 1,
+    "content": "Document: Abrupt Increase of BSW (Basic Sediment and Water) - Event 1\nSection: 7. Critical Safety Considerations\nEvent ID: 1\n\n## 7. Critical Safety Considerations\n- Elevated water production drastically accelerates internal carbonic acid ($H_2CO_3$) and sweet/sour corrosion in subsea flowlines.\n- Water loading can lead to sudden well shut-in (well killing itself), requiring high-pressure nitrogen lift or intervention to restart.\n- Topside produced water treatment facility may experience severe oil-in-water carryover and environmental discharge compliance risk."
+  },
+  {
+    "chunk_id": "event_1_abrupt_increase_bsw_9",
+    "doc_name": "event_1_abrupt_increase_bsw.md",
+    "doc_title": "Abrupt Increase of BSW (Basic Sediment and Water) - Event 1",
+    "section_title": "8. Relevant Sensor Relationships & Rules",
+    "event_id": 1,
+    "content": "Document: Abrupt Increase of BSW (Basic Sediment and Water) - Event 1\nSection: 8. Relevant Sensor Relationships & Rules\nEvent ID: 1\n\n## 8. Relevant Sensor Relationships & Rules\n- $\\Delta P_{tubing} = P_{PDG} - P_{TPT} \\uparrow$ while Wellhead Flowrate $\\downarrow$\n- $P_{MON-CKP} \\downarrow$ despite constant $ABER-CKP$"
+  },
+  {
+    "chunk_id": "event_2_spurious_closure_dhsv_1",
+    "doc_name": "event_2_spurious_closure_dhsv.md",
+    "doc_title": "Spurious Closure of DHSV (Downhole Safety Valve) - Event 2",
+    "section_title": "Overview",
+    "event_id": 2,
+    "content": "Document: Spurious Closure of DHSV (Downhole Safety Valve) - Event 2\nSection: Overview\nEvent ID: 2\n\n# Spurious Closure of DHSV (Downhole Safety Valve) - Event 2"
+  },
+  {
+    "chunk_id": "event_2_spurious_closure_dhsv_2",
+    "doc_name": "event_2_spurious_closure_dhsv.md",
+    "doc_title": "Spurious Closure of DHSV (Downhole Safety Valve) - Event 2",
+    "section_title": "1. Event Name & Definition",
+    "event_id": 2,
+    "content": "Document: Spurious Closure of DHSV (Downhole Safety Valve) - Event 2\nSection: 1. Event Name & Definition\nEvent ID: 2\n\n## 1. Event Name & Definition\n- **Event Identifier:** Event 2 (Transient: 102) - Spurious Closure of DHSV\n- **Category:** Safety Critical Subsea Valve Mechanical/Hydraulic Malfunction\n- **Severity Level:** Critical / Immediate Production Interruption"
+  },
+  {
+    "chunk_id": "event_2_spurious_closure_dhsv_3",
+    "doc_name": "event_2_spurious_closure_dhsv.md",
+    "doc_title": "Spurious Closure of DHSV (Downhole Safety Valve) - Event 2",
+    "section_title": "2. Physical Description & Meaning",
+    "event_id": 2,
+    "content": "Document: Spurious Closure of DHSV (Downhole Safety Valve) - Event 2\nSection: 2. Physical Description & Meaning\nEvent ID: 2\n\n## 2. Physical Description & Meaning\nThe Downhole Safety Valve (DHSV / SSSV) is a failsafe-closed flapper valve positioned typically 100-300 meters below the seabed inside the production tubing. It is held open by continuous hydraulic pressure supplied via a small hydraulic control line from the topside surface hydraulic power unit (HPU). A spurious closure occurs when the valve snaps or drifts shut uncommanded due to loss of hydraulic pressure, line leakage, or mechanical spring/flapper failure, instantly blocking the well's entire production conduit."
+  },
+  {
+    "chunk_id": "event_2_spurious_closure_dhsv_4",
+    "doc_name": "event_2_spurious_closure_dhsv.md",
+    "doc_title": "Spurious Closure of DHSV (Downhole Safety Valve) - Event 2",
+    "section_title": "3. Typical Sensor Symptoms",
+    "event_id": 2,
+    "content": "Document: Spurious Closure of DHSV (Downhole Safety Valve) - Event 2\nSection: 3. Typical Sensor Symptoms\nEvent ID: 2\n\n## 3. Typical Sensor Symptoms\n- **P-PDG (Downhole Pressure):** Sudden steep pressure buildup (rapid transition towards static reservoir shut-in pressure, $P_{res}$) as flow stops abruptly.\n- **P-TPT & P-MON-CKP:** Instantaneous catastrophic drop towards downstream flowline backpressure or vacuum.\n- **T-TPT & T-JUS-CKP:** Gradual thermal decay towards ambient seabed temperature (~4 \u00b0C in deepwater) due to cessation of warm reservoir fluids.\n- **Flowrate / Mass Flow:** Drops to zero instantaneously.\n- **DHSV Control Line Pressure ($P_{hyd}$):** Often drops below the minimum valve hold-open threshold (e.g., < 3,000 psi)."
+  },
+  {
+    "chunk_id": "event_2_spurious_closure_dhsv_5",
+    "doc_name": "event_2_spurious_closure_dhsv.md",
+    "doc_title": "Spurious Closure of DHSV (Downhole Safety Valve) - Event 2",
+    "section_title": "4. Possible Root Causes",
+    "event_id": 2,
+    "content": "Document: Spurious Closure of DHSV (Downhole Safety Valve) - Event 2\nSection: 4. Possible Root Causes\nEvent ID: 2\n\n## 4. Possible Root Causes\n1. **Hydraulic Control Line Rupture / Leakage:** Loss of hydraulic fluid in the subsea umbilical control conduit holding the flapper actuator.\n2. **Topside Hydraulic Power Unit (HPU) Solenoid Glitch:** Inadvertent de-energizing of safety ESD solenoids or hydraulic manifold pressure drops.\n3. **Mechanical Flapper / Spring Latch Failure:** Particulate jamming, scale accumulation, or spring fatigue inside the safety valve assembly.\n4. **Hydraulic Seal Elastomer Degradation:** O-ring/seal blow-by within the DHSV piston chamber under downhole temperature and pressure."
+  },
+  {
+    "chunk_id": "event_2_spurious_closure_dhsv_6",
+    "doc_name": "event_2_spurious_closure_dhsv.md",
+    "doc_title": "Spurious Closure of DHSV (Downhole Safety Valve) - Event 2",
+    "section_title": "5. Diagnostic Verification Steps",
+    "event_id": 2,
+    "content": "Document: Spurious Closure of DHSV (Downhole Safety Valve) - Event 2\nSection: 5. Diagnostic Verification Steps\nEvent ID: 2\n\n## 5. Diagnostic Verification Steps\n1. Observe the signature: $P_{PDG} \\uparrow$ simultaneously with $P_{TPT} \\downarrow$ and $P_{MON-CKP} \\downarrow$. This opposite divergence confirms downhole blockage below TPT.\n2. Check topside HPU hydraulic pressure gauges on the well's dedicated DHSV line.\n3. Verify hydraulic fluid replenishment rate and check for rapid HPU header pressure bleed.\n4. Confirm with subsea control module (SCM) telemetry whether any ESD command was registered."
+  },
+  {
+    "chunk_id": "event_2_spurious_closure_dhsv_7",
+    "doc_name": "event_2_spurious_closure_dhsv.md",
+    "doc_title": "Spurious Closure of DHSV (Downhole Safety Valve) - Event 2",
+    "section_title": "6. Recommended Operator Actions",
+    "event_id": 2,
+    "content": "Document: Spurious Closure of DHSV (Downhole Safety Valve) - Event 2\nSection: 6. Recommended Operator Actions\nEvent ID: 2\n\n## 6. Recommended Operator Actions\n1. Immediately throttle/close the topside production choke ($ABER-CKP$) to prevent extreme pressure differential surges across downstream valves.\n2. Check HPU hydraulic supply pressure and attempt controlled hydraulic re-opening according to operator safety procedures.\n3. Equalize pressure across the DHSV flapper if an equalization prong/pump-in procedure is available before applying opening hydraulic pressure.\n4. If hydraulic pressure cannot be maintained, notify subsea intervention team for wireline valve replacement or storm choke setting."
+  },
+  {
+    "chunk_id": "event_2_spurious_closure_dhsv_8",
+    "doc_name": "event_2_spurious_closure_dhsv.md",
+    "doc_title": "Spurious Closure of DHSV (Downhole Safety Valve) - Event 2",
+    "section_title": "7. Critical Safety Considerations",
+    "event_id": 2,
+    "content": "Document: Spurious Closure of DHSV (Downhole Safety Valve) - Event 2\nSection: 7. Critical Safety Considerations\nEvent ID: 2\n\n## 7. Critical Safety Considerations\n- **Water Hammer / Hydraulic Shock:** Sudden closure generates an acoustic pressure shockwave downhole.\n- **Depressurization Hazards:** Rapid evacuation of topside flowlines can destabilize gas/liquid interfaces in separators.\n- **DO NOT attempt to force open** against excessive differential pressure ($\\Delta P > 50$ bar) to prevent shearing the valve flapper mechanism."
+  },
+  {
+    "chunk_id": "event_2_spurious_closure_dhsv_9",
+    "doc_name": "event_2_spurious_closure_dhsv.md",
+    "doc_title": "Spurious Closure of DHSV (Downhole Safety Valve) - Event 2",
+    "section_title": "8. Relevant Sensor Relationships",
+    "event_id": 2,
+    "content": "Document: Spurious Closure of DHSV (Downhole Safety Valve) - Event 2\nSection: 8. Relevant Sensor Relationships\nEvent ID: 2\n\n## 8. Relevant Sensor Relationships\n- $P_{PDG} \\rightarrow P_{static}$ (sharp positive slope $\\frac{dP_{PDG}}{dt} \\gg 0$)\n- $P_{TPT} \\rightarrow 0$ or $P_{separator}$ (sharp negative slope $\\frac{dP_{TPT}}{dt} \\ll 0$)\n- Inverted pressure differential across tubing."
+  },
+  {
+    "chunk_id": "event_3_severe_slugging_1",
+    "doc_name": "event_3_severe_slugging.md",
+    "doc_title": "Severe Slugging (Hydrodynamic Riser Slugging) - Event 3",
+    "section_title": "Overview",
+    "event_id": 3,
+    "content": "Document: Severe Slugging (Hydrodynamic Riser Slugging) - Event 3\nSection: Overview\nEvent ID: 3\n\n# Severe Slugging (Hydrodynamic Riser Slugging) - Event 3"
+  },
+  {
+    "chunk_id": "event_3_severe_slugging_2",
+    "doc_name": "event_3_severe_slugging.md",
+    "doc_title": "Severe Slugging (Hydrodynamic Riser Slugging) - Event 3",
+    "section_title": "1. Event Name & Definition",
+    "event_id": 3,
+    "content": "Document: Severe Slugging (Hydrodynamic Riser Slugging) - Event 3\nSection: 1. Event Name & Definition\nEvent ID: 3\n\n## 1. Event Name & Definition\n- **Event Identifier:** Event 3 - Severe Slugging\n- **Category:** Multiphase Hydrodynamic Instability\n- **Severity Level:** High Operational & Equipment Risk"
+  },
+  {
+    "chunk_id": "event_3_severe_slugging_3",
+    "doc_name": "event_3_severe_slugging.md",
+    "doc_title": "Severe Slugging (Hydrodynamic Riser Slugging) - Event 3",
+    "section_title": "2. Physical Description & Meaning",
+    "event_id": 3,
+    "content": "Document: Severe Slugging (Hydrodynamic Riser Slugging) - Event 3\nSection: 2. Physical Description & Meaning\nEvent ID: 3\n\n## 2. Physical Description & Meaning\nSevere slugging is a cyclic multiphase flow phenomenon typically occurring in pipeline-riser systems at low to moderate flow rates. Liquids (oil and water) accumulate at the lowest point (the riser base dip), forming a complete liquid seal that blocks gas passage. Upstream gas in the flowline compresses behind the liquid plug, building high pressure until the gas overcomes the hydrostatic weight of the liquid column in the riser. The liquid is then vigorously expelled as a massive slug into topside facilities, followed by high-velocity gas blowout, after which liquid falls back and repeats the cycle."
+  },
+  {
+    "chunk_id": "event_3_severe_slugging_4",
+    "doc_name": "event_3_severe_slugging.md",
+    "doc_title": "Severe Slugging (Hydrodynamic Riser Slugging) - Event 3",
+    "section_title": "3. Typical Sensor Symptoms",
+    "event_id": 3,
+    "content": "Document: Severe Slugging (Hydrodynamic Riser Slugging) - Event 3\nSection: 3. Typical Sensor Symptoms\nEvent ID: 3\n\n## 3. Typical Sensor Symptoms\n- **Periodic Oscillations:** Large-amplitude, periodic cyclical swings in $P_{TPT}$, $P_{MON-CKP}$, $T_{TPT}$, and separator liquid levels.\n- **P-MON-CKP Variance:** Standard deviation ($\\sigma$) over 60s windows increases significantly ($\\sigma_{P_{MON-CKP}} > 5-15$ bar).\n- **P-PDG (Downhole Pressure):** Moderate cyclical fluctuations in phase with riser base pressure cycles.\n- **Topside Flowrate / Separator Inflow:** Severe surges of liquid followed by high gas volume spikes, causing frequent separator high-high level (LAHH) and high pressure alarms.\n- **Cycle Period:** Distinct periodic oscillation frequencies (typically 5 to 60 minutes per slug cycle)."
+  },
+  {
+    "chunk_id": "event_3_severe_slugging_5",
+    "doc_name": "event_3_severe_slugging.md",
+    "doc_title": "Severe Slugging (Hydrodynamic Riser Slugging) - Event 3",
+    "section_title": "4. Possible Root Causes",
+    "event_id": 3,
+    "content": "Document: Severe Slugging (Hydrodynamic Riser Slugging) - Event 3\nSection: 4. Possible Root Causes\nEvent ID: 3\n\n## 4. Possible Root Causes\n1. **Low Production Flow Rates:** Reservoir depletion or low flow velocities below the critical gas superficial velocity needed to carry liquid droplets.\n2. **Terrain Geometry:** Downward-sloping seabed flowline ending at a steep vertical or catenary production riser.\n3. **Ineffective Choke Control:** Choke operating at fully open setting without active anti-slug feedback control.\n4. **Gas Lift Depletion:** Inadequate gas lift injection at the riser base or downhole to lighten the liquid column."
+  },
+  {
+    "chunk_id": "event_3_severe_slugging_6",
+    "doc_name": "event_3_severe_slugging.md",
+    "doc_title": "Severe Slugging (Hydrodynamic Riser Slugging) - Event 3",
+    "section_title": "5. Diagnostic Verification Steps",
+    "event_id": 3,
+    "content": "Document: Severe Slugging (Hydrodynamic Riser Slugging) - Event 3\nSection: 5. Diagnostic Verification Steps\nEvent ID: 3\n\n## 5. Diagnostic Verification Steps\n1. Perform Fast Fourier Transform (FFT) or standard deviation monitoring on $P_{MON-CKP}$ and $P_{TPT}$ to detect dominant cyclical peak frequencies.\n2. Cross-correlate riser base pressure with topside choke upstream pressure.\n3. Check separator level trends for corresponding sawtooth liquid level oscillations."
+  },
+  {
+    "chunk_id": "event_3_severe_slugging_7",
+    "doc_name": "event_3_severe_slugging.md",
+    "doc_title": "Severe Slugging (Hydrodynamic Riser Slugging) - Event 3",
+    "section_title": "6. Recommended Operator Actions",
+    "event_id": 3,
+    "content": "Document: Severe Slugging (Hydrodynamic Riser Slugging) - Event 3\nSection: 6. Recommended Operator Actions\nEvent ID: 3\n\n## 6. Recommended Operator Actions\n1. Implement active anti-slug choke control (choke throttling) to increase system damping and stabilize flow.\n2. Increase gas lift injection rate ($Q_{GL}$) at the riser base or subsea wellhead to aerate the fluid and break liquid blockages.\n3. If topside separator trips are imminent, strategically choke back the production valve until steady flow regimes are re-established.\n4. Inject chemical drag reducers or foaming agents if available."
+  },
+  {
+    "chunk_id": "event_3_severe_slugging_8",
+    "doc_name": "event_3_severe_slugging.md",
+    "doc_title": "Severe Slugging (Hydrodynamic Riser Slugging) - Event 3",
+    "section_title": "7. Critical Safety Considerations",
+    "event_id": 3,
+    "content": "Document: Severe Slugging (Hydrodynamic Riser Slugging) - Event 3\nSection: 7. Critical Safety Considerations\nEvent ID: 3\n\n## 7. Critical Safety Considerations\n- Massive liquid slugs can overflow separators, causing liquid carryover into the gas flare system and compressor suction scrubbers.\n- Violent cyclic pressure pulsations induce mechanical fatigue, vibration, and pipe-hanger stress on topside piping and risers.\n- In severe instances, repeated compressor trips can lead to full platform emergency shutdowns."
+  },
+  {
+    "chunk_id": "event_3_severe_slugging_9",
+    "doc_name": "event_3_severe_slugging.md",
+    "doc_title": "Severe Slugging (Hydrodynamic Riser Slugging) - Event 3",
+    "section_title": "8. Relevant Sensor Relationships",
+    "event_id": 3,
+    "content": "Document: Severe Slugging (Hydrodynamic Riser Slugging) - Event 3\nSection: 8. Relevant Sensor Relationships\nEvent ID: 3\n\n## 8. Relevant Sensor Relationships\n- Strong periodicity and high variance in $P_{MON-CKP}$, $P_{TPT}$, and $T_{JUS-CKP}$.\n- $\\sigma(P_{MON-CKP}) \\gg \\sigma_{baseline}$ with distinct non-random cyclical oscillation."
+  },
+  {
+    "chunk_id": "event_4_flow_instability_1",
+    "doc_name": "event_4_flow_instability.md",
+    "doc_title": "Flow Instability (Multiphase Heading & Oscillations) - Event 4",
+    "section_title": "Overview",
+    "event_id": 4,
+    "content": "Document: Flow Instability (Multiphase Heading & Oscillations) - Event 4\nSection: Overview\nEvent ID: 4\n\n# Flow Instability (Multiphase Heading & Oscillations) - Event 4"
+  },
+  {
+    "chunk_id": "event_4_flow_instability_2",
+    "doc_name": "event_4_flow_instability.md",
+    "doc_title": "Flow Instability (Multiphase Heading & Oscillations) - Event 4",
+    "section_title": "1. Event Name & Definition",
+    "event_id": 4,
+    "content": "Document: Flow Instability (Multiphase Heading & Oscillations) - Event 4\nSection: 1. Event Name & Definition\nEvent ID: 4\n\n## 1. Event Name & Definition\n- **Event Identifier:** Event 4 - Flow Instability\n- **Category:** Wellbore & Flowline Hydrodynamic Instability / Heading\n- **Severity Level:** Moderate to High Operational Disturbance"
+  },
+  {
+    "chunk_id": "event_4_flow_instability_3",
+    "doc_name": "event_4_flow_instability.md",
+    "doc_title": "Flow Instability (Multiphase Heading & Oscillations) - Event 4",
+    "section_title": "2. Physical Description & Meaning",
+    "event_id": 4,
+    "content": "Document: Flow Instability (Multiphase Heading & Oscillations) - Event 4\nSection: 2. Physical Description & Meaning\nEvent ID: 4\n\n## 2. Physical Description & Meaning\nFlow instability encompasses irregular, chaotic, or fluctuating flow dynamics inside the wellbore and near-wellbore piping (such as casing heading, density heading, or tubing flow instability). Unlike severe slugging (which is characterized by regular, well-defined riser-induced periodic cycles), flow instability manifests as chaotic, multi-frequency fluctuations in pressure, temperature, and volumetric flowrates. It typically arises from dynamic interactions between gas-lift injection points, casing-tubing gas storage volume, and liquid holdup fluctuations."
+  },
+  {
+    "chunk_id": "event_4_flow_instability_4",
+    "doc_name": "event_4_flow_instability.md",
+    "doc_title": "Flow Instability (Multiphase Heading & Oscillations) - Event 4",
+    "section_title": "3. Typical Sensor Symptoms",
+    "event_id": 4,
+    "content": "Document: Flow Instability (Multiphase Heading & Oscillations) - Event 4\nSection: 3. Typical Sensor Symptoms\nEvent ID: 4\n\n## 3. Typical Sensor Symptoms\n- **P-PDG & P-TPT:** Erratic, non-harmonic oscillations without a single clear fixed period.\n- **P-ANULAR & QGL (Gas Lift):** Unstable annular pressure indicating casing heading (gas alternately storing in the casing and rushing through gas lift valves into the tubing).\n- **T-TPT / T-JUS-CKP:** High high-frequency jitter and irregular temperature excursions.\n- **P-MON-CKP:** Continuous wandering and turbulence with elevated standard deviation ($\\sigma$)."
+  },
+  {
+    "chunk_id": "event_4_flow_instability_5",
+    "doc_name": "event_4_flow_instability.md",
+    "doc_title": "Flow Instability (Multiphase Heading & Oscillations) - Event 4",
+    "section_title": "4. Possible Root Causes",
+    "event_id": 4,
+    "content": "Document: Flow Instability (Multiphase Heading & Oscillations) - Event 4\nSection: 4. Possible Root Causes\nEvent ID: 4\n\n## 4. Possible Root Causes\n1. **Casing Heading:** Compressible gas volume in the casing annulus charges and discharges intermittently through gas lift valves due to multiphase density changes in the tubing.\n2. **Tubing Heading:** Cyclic fluid accumulation and expulsion inside the production tubing at low reservoir drive.\n3. **Multi-Point Gas Lift Injection:** Inadvertent simultaneous gas injection through multiple downhole gas lift valves due to mismatched valve opening/closing pressures.\n4. **Sub-Critical Choke Flow:** Choke operating in the sub-critical flow regime where downstream flowline pressure disturbances propagate upstream into the wellbore."
+  },
+  {
+    "chunk_id": "event_4_flow_instability_6",
+    "doc_name": "event_4_flow_instability.md",
+    "doc_title": "Flow Instability (Multiphase Heading & Oscillations) - Event 4",
+    "section_title": "5. Diagnostic Verification Steps",
+    "event_id": 4,
+    "content": "Document: Flow Instability (Multiphase Heading & Oscillations) - Event 4\nSection: 5. Diagnostic Verification Steps\nEvent ID: 4\n\n## 5. Diagnostic Verification Steps\n1. Compare casing annulus pressure ($P_{ANULAR}$) with gas lift flowrate ($Q_{GL}$) and $P_{TPT}$. Out-of-phase oscillation confirms casing heading.\n2. Calculate pressure ratio across the production choke ($P_{JUS-CKP} / P_{MON-CKP}$). If ratio > 0.55, the choke is non-critical and transmitting topside surges into the well.\n3. Review gas lift mandrel valve diagnostics and gradient surveys."
+  },
+  {
+    "chunk_id": "event_4_flow_instability_7",
+    "doc_name": "event_4_flow_instability.md",
+    "doc_title": "Flow Instability (Multiphase Heading & Oscillations) - Event 4",
+    "section_title": "6. Recommended Operator Actions",
+    "event_id": 4,
+    "content": "Document: Flow Instability (Multiphase Heading & Oscillations) - Event 4\nSection: 6. Recommended Operator Actions\nEvent ID: 4\n\n## 6. Recommended Operator Actions\n1. Adjust gas lift injection rate ($Q_{GL}$) to ensure stable critical flow through the operating gas lift orifice.\n2. Slightly close the production choke ($ABER-CKP$) to transition into the critical acoustic flow regime, decoupling topside pressure fluctuations from the wellbore.\n3. Perform acoustic fluid level measurement in the annulus to ensure no liquid loading above the operating gas lift valve."
+  },
+  {
+    "chunk_id": "event_4_flow_instability_8",
+    "doc_name": "event_4_flow_instability.md",
+    "doc_title": "Flow Instability (Multiphase Heading & Oscillations) - Event 4",
+    "section_title": "7. Critical Safety Considerations",
+    "event_id": 4,
+    "content": "Document: Flow Instability (Multiphase Heading & Oscillations) - Event 4\nSection: 7. Critical Safety Considerations\nEvent ID: 4\n\n## 7. Critical Safety Considerations\n- Chronic cyclic stress on downhole gas lift check valves leading to seal degradation and backflow into the annulus.\n- Disturbance to topside separation trains and gas compression turbines due to irregular surge delivery."
+  },
+  {
+    "chunk_id": "event_4_flow_instability_9",
+    "doc_name": "event_4_flow_instability.md",
+    "doc_title": "Flow Instability (Multiphase Heading & Oscillations) - Event 4",
+    "section_title": "8. Relevant Sensor Relationships",
+    "event_id": 4,
+    "content": "Document: Flow Instability (Multiphase Heading & Oscillations) - Event 4\nSection: 8. Relevant Sensor Relationships\nEvent ID: 4\n\n## 8. Relevant Sensor Relationships\n- Elevated standard deviation $\\sigma(P_{PDG})$, $\\sigma(P_{TPT})$, $\\sigma(P_{ANULAR})$ across sliding time windows.\n- Strong negative phase correlation between $P_{ANULAR}$ and instantaneous $Q_{GL}$."
+  },
+  {
+    "chunk_id": "event_5_rapid_productivity_loss_1",
+    "doc_name": "event_5_rapid_productivity_loss.md",
+    "doc_title": "Rapid Productivity Loss (Skin / Formation Impairment) - Event 5",
+    "section_title": "Overview",
+    "event_id": 5,
+    "content": "Document: Rapid Productivity Loss (Skin / Formation Impairment) - Event 5\nSection: Overview\nEvent ID: 5\n\n# Rapid Productivity Loss (Skin / Formation Impairment) - Event 5"
+  },
+  {
+    "chunk_id": "event_5_rapid_productivity_loss_2",
+    "doc_name": "event_5_rapid_productivity_loss.md",
+    "doc_title": "Rapid Productivity Loss (Skin / Formation Impairment) - Event 5",
+    "section_title": "1. Event Name & Definition",
+    "event_id": 5,
+    "content": "Document: Rapid Productivity Loss (Skin / Formation Impairment) - Event 5\nSection: 1. Event Name & Definition\nEvent ID: 5\n\n## 1. Event Name & Definition\n- **Event Identifier:** Event 5 (Transient: 105) - Rapid Productivity Loss\n- **Category:** Near-Wellbore Reservoir Impairment / Inflow Restriction\n- **Severity Level:** High Economic & Production Impact"
+  },
+  {
+    "chunk_id": "event_5_rapid_productivity_loss_3",
+    "doc_name": "event_5_rapid_productivity_loss.md",
+    "doc_title": "Rapid Productivity Loss (Skin / Formation Impairment) - Event 5",
+    "section_title": "2. Physical Description & Meaning",
+    "event_id": 5,
+    "content": "Document: Rapid Productivity Loss (Skin / Formation Impairment) - Event 5\nSection: 2. Physical Description & Meaning\nEvent ID: 5\n\n## 2. Physical Description & Meaning\nRapid productivity loss refers to an unexpected, steep deterioration of the well's Productivity Index ($PI = \\frac{q}{P_{res} - P_{wf}}$) over a short duration (hours to days). Unlike normal long-term reservoir depletion, rapid loss indicates sudden mechanical, chemical, or physical obstruction occurring in the perforations, downhole sand screen mesh, gravel pack, or immediate near-wellbore rock pore matrix."
+  },
+  {
+    "chunk_id": "event_5_rapid_productivity_loss_4",
+    "doc_name": "event_5_rapid_productivity_loss.md",
+    "doc_title": "Rapid Productivity Loss (Skin / Formation Impairment) - Event 5",
+    "section_title": "3. Typical Sensor Symptoms",
+    "event_id": 5,
+    "content": "Document: Rapid Productivity Loss (Skin / Formation Impairment) - Event 5\nSection: 3. Typical Sensor Symptoms\nEvent ID: 5\n\n## 3. Typical Sensor Symptoms\n- **P-PDG (Downhole Flowing Pressure):** Decreases significantly during flow at fixed choke opening (increased bottomhole drawdown required to pull fluid), OR shows severe drawdown slope while surface rate drops.\n- **P-TPT & P-MON-CKP:** Steady decline matching reduced total fluid delivery to surface.\n- **T-TPT / T-JUS-CKP:** Continuous decline as flow velocity decreases, resulting in greater heat loss to ambient seabed.\n- **Flowrate ($Q_{oil}$, $Q_{gas}$):** Progressive, sharp reduction across test separators despite unchanged choke opening ($ABER-CKP$)."
+  },
+  {
+    "chunk_id": "event_5_rapid_productivity_loss_5",
+    "doc_name": "event_5_rapid_productivity_loss.md",
+    "doc_title": "Rapid Productivity Loss (Skin / Formation Impairment) - Event 5",
+    "section_title": "4. Possible Root Causes",
+    "event_id": 5,
+    "content": "Document: Rapid Productivity Loss (Skin / Formation Impairment) - Event 5\nSection: 4. Possible Root Causes\nEvent ID: 5\n\n## 4. Possible Root Causes\n1. **Sand / Fines Migration & Screen Plugging:** Mechanical collapse of formation sand arches or mobilization of clay fines plugging the sand control screens (gravel pack / premium mesh).\n2. **Asphaltene / Wax Precipitation:** Rapid pressure/temperature drop near the sandface crossing the Asphaltene Precipitation Envelope (APE), depositing heavy organic flocculates in pore throats.\n3. **Severe Near-Wellbore Emulsion / Water Block:** Heavy emulsion blocking porous permeability paths.\n4. **Near-Wellbore Scaling:** Barium sulfate ($BaSO_4$) or Calcium carbonate ($CaCO_3$) precipitating rapidly across perforation tunnels."
+  },
+  {
+    "chunk_id": "event_5_rapid_productivity_loss_6",
+    "doc_name": "event_5_rapid_productivity_loss.md",
+    "doc_title": "Rapid Productivity Loss (Skin / Formation Impairment) - Event 5",
+    "section_title": "5. Diagnostic Verification Steps",
+    "event_id": 5,
+    "content": "Document: Rapid Productivity Loss (Skin / Formation Impairment) - Event 5\nSection: 5. Diagnostic Verification Steps\nEvent ID: 5\n\n## 5. Diagnostic Verification Steps\n1. Plot inflow performance relationship (IPR) and compute current $PI$. If $PI$ drops drastically at constant static reservoir pressure, downhole skin factor ($S$) has increased.\n2. Review bottomhole temperature against wax appearance temperature (WAT) and asphaltene onset pressure (AOP).\n3. Check sand detection acoustic monitors on the topside flowline for sand production spikes preceding the plugging event."
+  },
+  {
+    "chunk_id": "event_5_rapid_productivity_loss_7",
+    "doc_name": "event_5_rapid_productivity_loss.md",
+    "doc_title": "Rapid Productivity Loss (Skin / Formation Impairment) - Event 5",
+    "section_title": "6. Recommended Operator Actions",
+    "event_id": 5,
+    "content": "Document: Rapid Productivity Loss (Skin / Formation Impairment) - Event 5\nSection: 6. Recommended Operator Actions\nEvent ID: 5\n\n## 6. Recommended Operator Actions\n1. Avoid aggressively opening the production choke, as increased drawdown exacerbates sand mobilization and asphaltene precipitation.\n2. Prepare matrix acid stimulation (e.g., mud acid / HCl) for inorganic scale/fines or aromatic solvent soaking (xylene/toluene) for asphaltene removal.\n3. If sand screen collapse is diagnosed, plan workover or downhole expandable sand screen (ESS) installation."
+  },
+  {
+    "chunk_id": "event_5_rapid_productivity_loss_8",
+    "doc_name": "event_5_rapid_productivity_loss.md",
+    "doc_title": "Rapid Productivity Loss (Skin / Formation Impairment) - Event 5",
+    "section_title": "7. Critical Safety Considerations",
+    "event_id": 5,
+    "content": "Document: Rapid Productivity Loss (Skin / Formation Impairment) - Event 5\nSection: 7. Critical Safety Considerations\nEvent ID: 5\n\n## 7. Critical Safety Considerations\n- Forcing production under high drawdown with plugged screens can lead to catastrophic screen erosion and subsequent sand blast erosion on surface chokes and bends.\n- Chemical solvent/acid treatments involve high-pressure coiled tubing operations with hazardous chemical handling risks."
+  },
+  {
+    "chunk_id": "event_5_rapid_productivity_loss_9",
+    "doc_name": "event_5_rapid_productivity_loss.md",
+    "doc_title": "Rapid Productivity Loss (Skin / Formation Impairment) - Event 5",
+    "section_title": "8. Relevant Sensor Relationships",
+    "event_id": 5,
+    "content": "Document: Rapid Productivity Loss (Skin / Formation Impairment) - Event 5\nSection: 8. Relevant Sensor Relationships\nEvent ID: 5\n\n## 8. Relevant Sensor Relationships\n- $P_{PDG} \\downarrow$, $P_{TPT} \\downarrow$, $T_{TPT} \\downarrow$, and $Q_{total} \\downarrow$ with constant $ABER-CKP$.\n- Tubing pressure drop decreases due to reduced frictional loss at lower flow velocities."
+  },
+  {
+    "chunk_id": "event_6_quick_restriction_pck_1",
+    "doc_name": "event_6_quick_restriction_pck.md",
+    "doc_title": "Quick Restriction in PCK (Production Choke) - Event 6",
+    "section_title": "Overview",
+    "event_id": 6,
+    "content": "Document: Quick Restriction in PCK (Production Choke) - Event 6\nSection: Overview\nEvent ID: 6\n\n# Quick Restriction in PCK (Production Choke) - Event 6"
+  },
+  {
+    "chunk_id": "event_6_quick_restriction_pck_2",
+    "doc_name": "event_6_quick_restriction_pck.md",
+    "doc_title": "Quick Restriction in PCK (Production Choke) - Event 6",
+    "section_title": "1. Event Name & Definition",
+    "event_id": 6,
+    "content": "Document: Quick Restriction in PCK (Production Choke) - Event 6\nSection: 1. Event Name & Definition\nEvent ID: 6\n\n## 1. Event Name & Definition\n- **Event Identifier:** Event 6 (Transient: 106) - Quick Restriction in PCK\n- **Category:** Subsea Wellhead Mechanical/Choke Obstruction\n- **Severity Level:** High Immediate Flow Restriction"
+  },
+  {
+    "chunk_id": "event_6_quick_restriction_pck_3",
+    "doc_name": "event_6_quick_restriction_pck.md",
+    "doc_title": "Quick Restriction in PCK (Production Choke) - Event 6",
+    "section_title": "2. Physical Description & Meaning",
+    "event_id": 6,
+    "content": "Document: Quick Restriction in PCK (Production Choke) - Event 6\nSection: 2. Physical Description & Meaning\nEvent ID: 6\n\n## 2. Physical Description & Meaning\nA quick restriction in the Production Choke (PCK) occurs when the flow orifice through the choke trim is suddenly mechanically narrowed or obstructed over a brief timespan (seconds to minutes). Unlike slow mineral scaling (which takes weeks to months), quick restriction is typically caused by physical debris (drill debris, gravel, broken valve seat fragments), sudden stem/plug mechanical drift, or abrupt localized hydrate/slurry bridging in the choke throat."
+  },
+  {
+    "chunk_id": "event_6_quick_restriction_pck_4",
+    "doc_name": "event_6_quick_restriction_pck.md",
+    "doc_title": "Quick Restriction in PCK (Production Choke) - Event 6",
+    "section_title": "3. Typical Sensor Symptoms",
+    "event_id": 6,
+    "content": "Document: Quick Restriction in PCK (Production Choke) - Event 6\nSection: 3. Typical Sensor Symptoms\nEvent ID: 6\n\n## 3. Typical Sensor Symptoms\n- **P-MON-CKP (Upstream Pressure):** Sudden steep pressure increase due to hydraulic backpressure piling up against the restriction.\n- **P-JUS-CKP (Downstream Pressure):** Sudden drop in pressure downstream of the choke.\n- **Differential Pressure ($\\Delta P_{PCK} = P_{MON-CKP} - P_{JUS-CKP}$):** Sharp, pronounced step increase.\n- **T-JUS-CKP (Downstream Temperature):** Sudden drop due to increased Joule-Thomson gas expansion cooling across the narrowed restriction orifice.\n- **P-PDG & P-TPT:** Gradual increase in upstream pressures reflecting backpressure propagating back downhole."
+  },
+  {
+    "chunk_id": "event_6_quick_restriction_pck_5",
+    "doc_name": "event_6_quick_restriction_pck.md",
+    "doc_title": "Quick Restriction in PCK (Production Choke) - Event 6",
+    "section_title": "4. Possible Root Causes",
+    "event_id": 6,
+    "content": "Document: Quick Restriction in PCK (Production Choke) - Event 6\nSection: 4. Possible Root Causes\nEvent ID: 6\n\n## 4. Possible Root Causes\n1. **Solid Debris Ingestion:** Formation rock fragments, drill cuttings, proppant, or disintegrated downhole packer debris lodging in the choke cage orifice.\n2. **Choke Actuator / Stem Mechanical Drift:** Internal stem mechanical decoupling, lost motion, or hydraulic actuator trim misalignment causing the valve plug to move uncommanded.\n3. **Localized Flash Hydrate / Wax Deposition:** Rapid local solid phase formation due to severe Joule-Thomson chilling in the high-velocity throat.\n4. **Erosion Trim Failure / Fracture:** Tungsten carbide choke sleeve or cage fracture causing broken fragments to wedge in the flow port."
+  },
+  {
+    "chunk_id": "event_6_quick_restriction_pck_6",
+    "doc_name": "event_6_quick_restriction_pck.md",
+    "doc_title": "Quick Restriction in PCK (Production Choke) - Event 6",
+    "section_title": "5. Diagnostic Verification Steps",
+    "event_id": 6,
+    "content": "Document: Quick Restriction in PCK (Production Choke) - Event 6\nSection: 5. Diagnostic Verification Steps\nEvent ID: 6\n\n## 5. Diagnostic Verification Steps\n1. Verify choke differential pressure: $\\Delta P_{PCK} \\uparrow$ sharply while commanded position indicator ($ABER-CKP$) remains unchanged.\n2. Check $T_{JUS-CKP}$ for corresponding Joule-Thomson cooling dip.\n3. Contrast with Event 7 (Scaling): Event 6 happens rapidly (minutes/hours), whereas Event 7 is gradual over weeks."
+  },
+  {
+    "chunk_id": "event_6_quick_restriction_pck_7",
+    "doc_name": "event_6_quick_restriction_pck.md",
+    "doc_title": "Quick Restriction in PCK (Production Choke) - Event 6",
+    "section_title": "6. Recommended Operator Actions",
+    "event_id": 6,
+    "content": "Document: Quick Restriction in PCK (Production Choke) - Event 6\nSection: 6. Recommended Operator Actions\nEvent ID: 6\n\n## 6. Recommended Operator Actions\n1. Cycle the production choke trim gently (exercise choke open/close by +/- 5-10%) under controlled conditions to dislodge debris, if safe.\n2. If Joule-Thomson cooling suggests ice/hydrate plugging, immediately initiate continuous thermodynamic inhibitor (MEG / Methanol) injection upstream of the choke.\n3. If mechanical trim failure is suspected, switch production to the standby test choke or prepare for subsea choke insert replacement."
+  },
+  {
+    "chunk_id": "event_6_quick_restriction_pck_8",
+    "doc_name": "event_6_quick_restriction_pck.md",
+    "doc_title": "Quick Restriction in PCK (Production Choke) - Event 6",
+    "section_title": "7. Critical Safety Considerations",
+    "event_id": 6,
+    "content": "Document: Quick Restriction in PCK (Production Choke) - Event 6\nSection: 7. Critical Safety Considerations\nEvent ID: 6\n\n## 7. Critical Safety Considerations\n- Severe differential pressure across a restricted choke can exceed the structural burst/collapse rating of downstream piping if downstream relief is restricted.\n- High-velocity fluid jetting past debris causes accelerated localized impingement erosion on the choke body."
+  },
+  {
+    "chunk_id": "event_6_quick_restriction_pck_9",
+    "doc_name": "event_6_quick_restriction_pck.md",
+    "doc_title": "Quick Restriction in PCK (Production Choke) - Event 6",
+    "section_title": "8. Relevant Sensor Relationships",
+    "event_id": 6,
+    "content": "Document: Quick Restriction in PCK (Production Choke) - Event 6\nSection: 8. Relevant Sensor Relationships\nEvent ID: 6\n\n## 8. Relevant Sensor Relationships\n- $P_{MON-CKP} \\uparrow$ and $P_{JUS-CKP} \\downarrow \\implies \\Delta P_{PCK} \\gg \\Delta P_{nominal}$\n- $T_{JUS-CKP} \\downarrow$ due to $\\Delta T_{JT} = \\mu_{JT} \\cdot \\Delta P$\n- Negative correlation between upstream and downstream pressure across the choke."
+  },
+  {
+    "chunk_id": "event_7_scaling_in_pck_1",
+    "doc_name": "event_7_scaling_in_pck.md",
+    "doc_title": "Scaling in PCK (Production Choke Mineral Deposition) - Event 7",
+    "section_title": "Overview",
+    "event_id": 7,
+    "content": "Document: Scaling in PCK (Production Choke Mineral Deposition) - Event 7\nSection: Overview\nEvent ID: 7\n\n# Scaling in PCK (Production Choke Mineral Deposition) - Event 7"
+  },
+  {
+    "chunk_id": "event_7_scaling_in_pck_2",
+    "doc_name": "event_7_scaling_in_pck.md",
+    "doc_title": "Scaling in PCK (Production Choke Mineral Deposition) - Event 7",
+    "section_title": "1. Event Name & Definition",
+    "event_id": 7,
+    "content": "Document: Scaling in PCK (Production Choke Mineral Deposition) - Event 7\nSection: 1. Event Name & Definition\nEvent ID: 7\n\n## 1. Event Name & Definition\n- **Event Identifier:** Event 7 (Transient: 107) - Scaling in PCK\n- **Category:** Flow Assurance / Mineral Precipitation\n- **Severity Level:** Moderate to High Progressive Restriction"
+  },
+  {
+    "chunk_id": "event_7_scaling_in_pck_3",
+    "doc_name": "event_7_scaling_in_pck.md",
+    "doc_title": "Scaling in PCK (Production Choke Mineral Deposition) - Event 7",
+    "section_title": "2. Physical Description & Meaning",
+    "event_id": 7,
+    "content": "Document: Scaling in PCK (Production Choke Mineral Deposition) - Event 7\nSection: 2. Physical Description & Meaning\nEvent ID: 7\n\n## 2. Physical Description & Meaning\nScaling in the production choke is the progressive, continuous precipitation and crystalline deposition of inorganic mineral salts (such as Calcium Carbonate $CaCO_3$, Barium Sulfate $BaSO_4$, or Strontium Sulfate $SrSO_4$) onto the internal surfaces, ports, and trim of the production choke. Scaling occurs due to thermodynamic shifts\u2014specifically, the sharp pressure drop ($\\Delta P$) across the choke causes dissolved $CO_2$ to flash out of the aqueous phase, increasing pH and causing calcium carbonate to exceed its solubility limit and crystallize."
+  },
+  {
+    "chunk_id": "event_7_scaling_in_pck_4",
+    "doc_name": "event_7_scaling_in_pck.md",
+    "doc_title": "Scaling in PCK (Production Choke Mineral Deposition) - Event 7",
+    "section_title": "3. Typical Sensor Symptoms",
+    "event_id": 7,
+    "content": "Document: Scaling in PCK (Production Choke Mineral Deposition) - Event 7\nSection: 3. Typical Sensor Symptoms\nEvent ID: 7\n\n## 3. Typical Sensor Symptoms\n- **Progressive Differential Pressure Drift:** Monotonic, gradual upward climb in upstream pressure ($P_{MON-CKP}$) relative to downstream pressure ($P_{JUS-CKP}$) over extended operational windows.\n- **Choke Flow Coefficient ($C_v$) Degradation:** Apparent effective $C_v$ drops steadily for a fixed physical choke opening ($ABER-CKP$).\n- **P-PDG / P-TPT:** Subtle long-term upward creeping trend in bottomhole and wellhead pressures as backpressure accumulates.\n- **Production Rate:** Gradual decline in liquid flow delivery over multiple production days/weeks."
+  },
+  {
+    "chunk_id": "event_7_scaling_in_pck_5",
+    "doc_name": "event_7_scaling_in_pck.md",
+    "doc_title": "Scaling in PCK (Production Choke Mineral Deposition) - Event 7",
+    "section_title": "4. Possible Root Causes",
+    "event_id": 7,
+    "content": "Document: Scaling in PCK (Production Choke Mineral Deposition) - Event 7\nSection: 4. Possible Root Causes\nEvent ID: 7\n\n## 4. Possible Root Causes\n1. **Incompatible Water Mixing:** Mixing of formation water rich in barium/calcium ions with injected seawater rich in sulfate ($SO_4^{2-}$) ions.\n2. **$CO_2$ Flashing across Choke Orifice:** Sudden pressure drop across PCK strips dissolved acid gases, shifting carbonate equilibrium toward insoluble $CaCO_3$.\n3. **Scale Inhibitor Depletion:** Failure, under-dosing, or blockage of the subsea continuous chemical scale inhibitor injection line.\n4. **Thermal Gradient:** Cooling of produced brine as it approaches the cold seabed wellhead environment."
+  },
+  {
+    "chunk_id": "event_7_scaling_in_pck_6",
+    "doc_name": "event_7_scaling_in_pck.md",
+    "doc_title": "Scaling in PCK (Production Choke Mineral Deposition) - Event 7",
+    "section_title": "5. Diagnostic Verification Steps",
+    "event_id": 7,
+    "content": "Document: Scaling in PCK (Production Choke Mineral Deposition) - Event 7\nSection: 5. Diagnostic Verification Steps\nEvent ID: 7\n\n## 5. Diagnostic Verification Steps\n1. Track the continuous trend of effective choke flow coefficient: $C_v = \\frac{Q}{\\sqrt{\\frac{\\Delta P}{SG}}}$. A smooth, non-oscillating downward drift in $C_v$ is the hallmark of mineral scaling.\n2. Review scale prediction modeling software (e.g., ScaleChem / MultiScale) against current produced water ionic analysis.\n3. Check subsea chemical injection rate telemetry for scale inhibitor pump status and dosing rate."
+  },
+  {
+    "chunk_id": "event_7_scaling_in_pck_7",
+    "doc_name": "event_7_scaling_in_pck.md",
+    "doc_title": "Scaling in PCK (Production Choke Mineral Deposition) - Event 7",
+    "section_title": "6. Recommended Operator Actions",
+    "event_id": 7,
+    "content": "Document: Scaling in PCK (Production Choke Mineral Deposition) - Event 7\nSection: 6. Recommended Operator Actions\nEvent ID: 7\n\n## 6. Recommended Operator Actions\n1. Increase continuous subsea scale inhibitor chemical injection rate upstream of the Christmas Tree.\n2. Perform chemical scale dissolver batch treatment (e.g., chelating agents like EDTA/DTPA for sulfate scale, or inhibited HCl for carbonate scale).\n3. If scale layer is thick and mechanically resilient, execute subsea choke insert change-out via ROV (Remote Operated Vehicle)."
+  },
+  {
+    "chunk_id": "event_7_scaling_in_pck_8",
+    "doc_name": "event_7_scaling_in_pck.md",
+    "doc_title": "Scaling in PCK (Production Choke Mineral Deposition) - Event 7",
+    "section_title": "7. Critical Safety Considerations",
+    "event_id": 7,
+    "content": "Document: Scaling in PCK (Production Choke Mineral Deposition) - Event 7\nSection: 7. Critical Safety Considerations\nEvent ID: 7\n\n## 7. Critical Safety Considerations\n- Barium sulfate scale frequently co-precipitates with trace radium isotopes, creating Naturally Occurring Radioactive Material (NORM) hazards during maintenance and choke refurbishment.\n- Excessive scale buildup can seize the choke actuator stem, preventing emergency choke closure."
+  },
+  {
+    "chunk_id": "event_7_scaling_in_pck_9",
+    "doc_name": "event_7_scaling_in_pck.md",
+    "doc_title": "Scaling in PCK (Production Choke Mineral Deposition) - Event 7",
+    "section_title": "8. Relevant Sensor Relationships",
+    "event_id": 7,
+    "content": "Document: Scaling in PCK (Production Choke Mineral Deposition) - Event 7\nSection: 8. Relevant Sensor Relationships\nEvent ID: 7\n\n## 8. Relevant Sensor Relationships\n- Monotonic long-term growth in $\\Delta P_{PCK} = P_{MON-CKP} - P_{JUS-CKP}$\n- Gradual decay in $C_v(t)$ at constant $ABER-CKP$"
+  },
+  {
+    "chunk_id": "event_8_hydrate_in_production_line_1",
+    "doc_name": "event_8_hydrate_in_production_line.md",
+    "doc_title": "Hydrate in Production Line - Event 8",
+    "section_title": "Overview",
+    "event_id": 8,
+    "content": "Document: Hydrate in Production Line - Event 8\nSection: Overview\nEvent ID: 8\n\n# Hydrate in Production Line - Event 8"
+  },
+  {
+    "chunk_id": "event_8_hydrate_in_production_line_2",
+    "doc_name": "event_8_hydrate_in_production_line.md",
+    "doc_title": "Hydrate in Production Line - Event 8",
+    "section_title": "1. Event Name & Definition",
+    "event_id": 8,
+    "content": "Document: Hydrate in Production Line - Event 8\nSection: 1. Event Name & Definition\nEvent ID: 8\n\n## 1. Event Name & Definition\n- **Event Identifier:** Event 8 (Transient: 108) - Hydrate in Production Line\n- **Category:** Flow Assurance / Clathrate Hydrate Solid Formation\n- **Severity Level:** Critical Flow Assurance Hazard / High Pipeline Plugging Risk"
+  },
+  {
+    "chunk_id": "event_8_hydrate_in_production_line_3",
+    "doc_name": "event_8_hydrate_in_production_line.md",
+    "doc_title": "Hydrate in Production Line - Event 8",
+    "section_title": "2. Physical Description & Meaning",
+    "event_id": 8,
+    "content": "Document: Hydrate in Production Line - Event 8\nSection: 2. Physical Description & Meaning\nEvent ID: 8\n\n## 2. Physical Description & Meaning\nGas hydrates are crystalline ice-like solid compounds formed when natural gas molecules (methane, ethane, propane) become entrapped in hydrogen-bonded cages of liquid water molecules under conditions of high pressure and low temperature ($P > 20-50$ bar, $T < 15-20$ \u00b0C). In deepwater subsea production flowlines, produced multiphase fluids transfer heat rapidly to cold ambient ocean water (~4 \u00b0C). If fluid temperature drops into the Hydrate Equilibrium Curve without sufficient thermodynamic inhibitor (such as Monoethylene Glycol / MEG or Methanol), hydrate crystals nucleate, agglomerate, and form solid plugs along the internal flowline wall, choking or completely blocking oil and gas flow."
+  },
+  {
+    "chunk_id": "event_8_hydrate_in_production_line_4",
+    "doc_name": "event_8_hydrate_in_production_line.md",
+    "doc_title": "Hydrate in Production Line - Event 8",
+    "section_title": "3. Typical Sensor Symptoms",
+    "event_id": 8,
+    "content": "Document: Hydrate in Production Line - Event 8\nSection: 3. Typical Sensor Symptoms\nEvent ID: 8\n\n## 3. Typical Sensor Symptoms\n- **Progressive Flowline Pressure Drop:** Continuous, sharp increase in upstream subsea wellhead pressure ($P_{TPT}$, $P_{MON-CKP}$) while topside receiving separator pressure drops.\n- **T-TPT / T-JUS-CKP:** Temperature trends dropping deeply into the hydrate formation temperature envelope ($T_{fluid} < T_{hydrate\\_eq}$).\n- **Flowrate Attenuation:** Gradual-to-rapid decay of hydrocarbon production rate at topside platform.\n- **Acoustic / Backpressure Signatures:** Irregular pressure pulse reflections and high-frequency hydraulic resistance as hydrate slurries form bedding layers along pipe inverts."
+  },
+  {
+    "chunk_id": "event_8_hydrate_in_production_line_5",
+    "doc_name": "event_8_hydrate_in_production_line.md",
+    "doc_title": "Hydrate in Production Line - Event 8",
+    "section_title": "4. Possible Root Causes",
+    "event_id": 8,
+    "content": "Document: Hydrate in Production Line - Event 8\nSection: 4. Possible Root Causes\nEvent ID: 8\n\n## 4. Possible Root Causes\n1. **Flowline Subsea Heat Loss:** Inadequate or degraded subsea thermal insulation (pipe-in-pipe / wet insulation foam damage).\n2. **Inhibitor Injection Failure:** Malfunction, pump trip, or line blockage in the MEG/Methanol subsea umbilical injection system during startup, shutdown, or steady flow.\n3. **High Water Cut with Low Gas Rates:** Insufficient gas velocity to sweep water out, creating stagnant cold water pockets in bathymetric flowline low spots.\n4. **Unplanned Well Restart:** Restarting a cold shut-in subsea flowline without proper prior displacement or solvent bullheading."
+  },
+  {
+    "chunk_id": "event_8_hydrate_in_production_line_6",
+    "doc_name": "event_8_hydrate_in_production_line.md",
+    "doc_title": "Hydrate in Production Line - Event 8",
+    "section_title": "5. Diagnostic Verification Steps",
+    "event_id": 8,
+    "content": "Document: Hydrate in Production Line - Event 8\nSection: 5. Diagnostic Verification Steps\nEvent ID: 8\n\n## 5. Diagnostic Verification Steps\n1. Compare real-time ($P, T$) telemetry against the fluid's Hydrate Equilibrium Curve (calculated from gas composition and salinity). If operating point enters the hydrate zone ($\\Delta T_{subcooling} > 0$), hydrate risk is acute.\n2. Calculate overall pipeline friction factor and pressure drop: $f(t) = \\frac{\\Delta P_{flowline} \\cdot D}{2 \\cdot L \\cdot \\rho \\cdot v^2}$. A growing friction factor confirms solid wall deposition.\n3. Check topside chemical injection pump flowmeter telemetry and total MEG delivery volume."
+  },
+  {
+    "chunk_id": "event_8_hydrate_in_production_line_7",
+    "doc_name": "event_8_hydrate_in_production_line.md",
+    "doc_title": "Hydrate in Production Line - Event 8",
+    "section_title": "6. Recommended Operator Actions",
+    "event_id": 8,
+    "content": "Document: Hydrate in Production Line - Event 8\nSection: 6. Recommended Operator Actions\nEvent ID: 8\n\n## 6. Recommended Operator Actions\n1. **Immediately initiate high-rate thermodynamic inhibitor injection (MEG or Methanol)** upstream of the suspected obstruction location.\n2. **Controlled Two-Sided Depressurization:** Depressurize the flowline from BOTH ends simultaneously to shift the thermodynamic equilibrium outside the hydrate stability zone.\n3. If electric trace heating (ETH) or subsea direct electric heating (DEH) is installed, activate the heating system immediately.\n4. DO NOT depressurize from one side only, to avoid dangerous projectile acceleration of dislodged hydrate plugs."
+  },
+  {
+    "chunk_id": "event_8_hydrate_in_production_line_8",
+    "doc_name": "event_8_hydrate_in_production_line.md",
+    "doc_title": "Hydrate in Production Line - Event 8",
+    "section_title": "7. Critical Safety Considerations",
+    "event_id": 8,
+    "content": "Document: Hydrate in Production Line - Event 8\nSection: 7. Critical Safety Considerations\nEvent ID: 8\n\n## 7. Critical Safety Considerations\n- **Hydrate Plug Missile Hazard:** Asymmetrical depressurization can turn a dislodged hydrate solid plug into a high-speed projectile moving at hundreds of km/h, capable of rupturing subsea manifolds, bends, and topside risers.\n- **Trapped Gas Pressure Pockets:** Multiple plugs can isolate extremely high pressure pockets that remain trapped even when surface pressure reads zero."
+  },
+  {
+    "chunk_id": "event_8_hydrate_in_production_line_9",
+    "doc_name": "event_8_hydrate_in_production_line.md",
+    "doc_title": "Hydrate in Production Line - Event 8",
+    "section_title": "8. Relevant Sensor Relationships",
+    "event_id": 8,
+    "content": "Document: Hydrate in Production Line - Event 8\nSection: 8. Relevant Sensor Relationships\nEvent ID: 8\n\n## 8. Relevant Sensor Relationships\n- $P_{TPT} \\uparrow$ / $P_{MON-CKP} \\uparrow$ with simultaneous $Q_{flow} \\downarrow$\n- $T_{TPT}$ / $T_{JUS-CKP}$ operating within the hydrate thermodynamic stability boundary ($T_{meas} \\le T_{hydrate}(P)$)."
+  },
+  {
+    "chunk_id": "event_9_hydrate_in_service_line_1",
+    "doc_name": "event_9_hydrate_in_service_line.md",
+    "doc_title": "Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9",
+    "section_title": "Overview",
+    "event_id": 9,
+    "content": "Document: Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9\nSection: Overview\nEvent ID: 9\n\n# Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9"
+  },
+  {
+    "chunk_id": "event_9_hydrate_in_service_line_2",
+    "doc_name": "event_9_hydrate_in_service_line.md",
+    "doc_title": "Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9",
+    "section_title": "1. Event Name & Definition",
+    "event_id": 9,
+    "content": "Document: Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9\nSection: 1. Event Name & Definition\nEvent ID: 9\n\n## 1. Event Name & Definition\n- **Event Identifier:** Event 9 (Transient: 109) - Hydrate in Service Line\n- **Category:** Flow Assurance / Auxiliary Line Plugging\n- **Severity Level:** High Flow Assurance & Well Support Impact"
+  },
+  {
+    "chunk_id": "event_9_hydrate_in_service_line_3",
+    "doc_name": "event_9_hydrate_in_service_line.md",
+    "doc_title": "Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9",
+    "section_title": "2. Physical Description & Meaning",
+    "event_id": 9,
+    "content": "Document: Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9\nSection: 2. Physical Description & Meaning\nEvent ID: 9\n\n## 2. Physical Description & Meaning\nSubsea service lines provide vital auxiliary fluid connectivity to offshore production wells, including continuous gas-lift injection lines, chemical injection lines, hydraulic service lines, and well-kill/scale-squeeze lines. Hydrate formation inside service lines occurs when high-pressure gas (e.g. lift gas with residual moisture) or water-bearing service fluids cool in the cold seabed environment (~4 \u00b0C). Solid hydrate crystal formation in the service line blocks gas-lift delivery or chemical treatment, disrupting artificial lift and precipitating well stall."
+  },
+  {
+    "chunk_id": "event_9_hydrate_in_service_line_4",
+    "doc_name": "event_9_hydrate_in_service_line.md",
+    "doc_title": "Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9",
+    "section_title": "3. Typical Sensor Symptoms",
+    "event_id": 9,
+    "content": "Document: Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9\nSection: 3. Typical Sensor Symptoms\nEvent ID: 9\n\n## 3. Typical Sensor Symptoms\n- **P-JUS-CKGL & P-MON-CKGL:** Sharp pressure buildup upstream of the service line blockage, or abnormal gas lift manifold supply pressure.\n- **QGL (Gas Lift Flow Rate):** Steep decay down to zero flowrate despite fully open gas lift choke ($ABER-CKGL = 100\\%$).\n- **P-ANULAR (Annular Pressure):** Rapid drop in casing annulus pressure as lift gas fails to replenish the annular volume while downhole valves continue drawing gas.\n- **P-PDG & P-TPT:** Secondary loss of well drawdown and decaying production rate as artificial gas lift assistance ceases."
+  },
+  {
+    "chunk_id": "event_9_hydrate_in_service_line_5",
+    "doc_name": "event_9_hydrate_in_service_line.md",
+    "doc_title": "Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9",
+    "section_title": "4. Possible Root Causes",
+    "event_id": 9,
+    "content": "Document: Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9\nSection: 4. Possible Root Causes\nEvent ID: 9\n\n## 4. Possible Root Causes\n1. **Wet / Inadequately Dehydrated Lift Gas:** Dewpoint breakthrough in the topside molecular sieve / TEG gas dehydration contactor unit, introducing free water into the high-pressure gas lift stream.\n2. **Cold Subsea Gas Line Exposure:** Uninsulated service line resting on the ocean floor operating at high pressure (150-250 bar) and low seawater temperature (4 \u00b0C).\n3. **Absence of Continuous Methanol / MEG Dosing:** Failure of methanol injection pump on the topside gas lift header prior to subsea injection.\n4. **Line Shut-in under Operating Pressure:** Leaving service lines pressurized with wet gas during facility shutdowns without solvent purging."
+  },
+  {
+    "chunk_id": "event_9_hydrate_in_service_line_6",
+    "doc_name": "event_9_hydrate_in_service_line.md",
+    "doc_title": "Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9",
+    "section_title": "5. Diagnostic Verification Steps",
+    "event_id": 9,
+    "content": "Document: Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9\nSection: 5. Diagnostic Verification Steps\nEvent ID: 9\n\n## 5. Diagnostic Verification Steps\n1. Correlate $Q_{GL}$ vs gas-lift injection header pressure ($P_{GL\\_header}$). Rising header pressure with plummeting flowrate confirms downstream service line blockage.\n2. Check topside gas dehydration unit hygrometer telemetry for elevated moisture content ($H_2O > 7$ lbs/MMSCF).\n3. Cross-reference gas-lift operating pressure and seabed temperature against hydrate dissociation curves for the specific lift-gas composition."
+  },
+  {
+    "chunk_id": "event_9_hydrate_in_service_line_7",
+    "doc_name": "event_9_hydrate_in_service_line.md",
+    "doc_title": "Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9",
+    "section_title": "6. Recommended Operator Actions",
+    "event_id": 9,
+    "content": "Document: Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9\nSection: 6. Recommended Operator Actions\nEvent ID: 9\n\n## 6. Recommended Operator Actions\n1. Immediately align continuous Methanol/MEG injection pump into the upstream service line header at high dosing rate.\n2. Perform controlled depressurization of the service line from the platform topside to decompose the hydrate crystals.\n3. Switch gas-lift source to dried, heated export gas or clean fuel gas if available.\n4. Inspect topside TEG dehydration contactor reboiler temperature and glycol circulation rate."
+  },
+  {
+    "chunk_id": "event_9_hydrate_in_service_line_8",
+    "doc_name": "event_9_hydrate_in_service_line.md",
+    "doc_title": "Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9",
+    "section_title": "7. Critical Safety Considerations",
+    "event_id": 9,
+    "content": "Document: Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9\nSection: 7. Critical Safety Considerations\nEvent ID: 9\n\n## 7. Critical Safety Considerations\n- **Pressure Entrapment & Line Rupture:** Depressurizing service lines must be executed carefully to prevent extreme differential pressures that can blow seals on subsea check valves.\n- **Gas Blowback Hazard:** If the service line is disconnected or purged, ensure check valves prevent backflow of hydrocarbons from the reservoir into the utility system."
+  },
+  {
+    "chunk_id": "event_9_hydrate_in_service_line_9",
+    "doc_name": "event_9_hydrate_in_service_line.md",
+    "doc_title": "Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9",
+    "section_title": "8. Relevant Sensor Relationships",
+    "event_id": 9,
+    "content": "Document: Hydrate in Service Line (Gas Lift / Service Line Plugging) - Event 9\nSection: 8. Relevant Sensor Relationships\nEvent ID: 9\n\n## 8. Relevant Sensor Relationships\n- $Q_{GL} \\rightarrow 0$ while Gas Lift Supply Pressure $\\uparrow$\n- $P_{ANULAR} \\downarrow$ due to gas starvation in casing\n- $P_{TPT} \\downarrow$ and $P_{PDG} \\uparrow$ as gas-lift artificial energy is lost."
+  }
+]

@@ -1,0 +1,27 @@
+PETROBRAS 3W DATASET 2.0.0 - AUDITED BINARY FAULT DETECTION REPORT
+======================================================================
+
+Model: RandomForestClassifier (class_weight='balanced', max_depth=14)
+Training Time: 7.67s
+Accuracy         : 0.7417
+Precision (Fault): 0.9072
+Recall (Fault)   : 0.6123
+F1-Score (Fault) : 0.7312
+ROC-AUC          : 0.9210
+
+Transient Recall (Classes 101-109): 0.5481 (Support: 54934)
+Established Recall (Classes 1-9)  : 0.9157 (Support: 11625)
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      Normal     0.6370    0.9157    0.7514     49457
+       Fault     0.9072    0.6123    0.7312     66559
+
+    accuracy                         0.7417    116016
+   macro avg     0.7721    0.7640    0.7413    116016
+weighted avg     0.7921    0.7417    0.7398    116016
+
+Confusion Matrix (Normal vs Fault):
+[[45290  4167]
+ [25804 40755]]

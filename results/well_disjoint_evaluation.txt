@@ -1,0 +1,22 @@
+PETROBRAS 3W DATASET 2.0.0 — PHYSICAL WELL-DISJOINT GENERALIZATION REPORT
+===========================================================================
+
+Train Wells (32): WELL-00001, WELL-00002, WELL-00003, WELL-00004, WELL-00006, WELL-00007, WELL-00008, WELL-00009, WELL-00010, WELL-00011, WELL-00012, WELL-00014, WELL-00015, WELL-00020, WELL-00021, WELL-00023, WELL-00024, WELL-00025, WELL-00026, WELL-00027, WELL-00028, WELL-00031, WELL-00032, WELL-00033, WELL-00034, WELL-00035, WELL-00036, WELL-00037, WELL-00038, WELL-00039, WELL-00041, WELL-00042
+Test Wells  (8): WELL-00005, WELL-00013, WELL-00016, WELL-00019, WELL-00022, WELL-00029, WELL-00030, WELL-00040
+Physical Well Overlap: 0 (Zero Overlap)
+
+BINARY ANOMALY DETECTION (UNSEEN WELLS):
+Accuracy : 0.4084
+Precision: 0.5663
+Recall   : 0.4668
+F1-Score : 0.5118
+
+MULTI-CLASS FAULT CLASSIFICATION (UNSEEN WELLS):
+Accuracy   : 0.3189
+Macro F1   : 0.2411
+Weighted F1: 0.2430
+
+NOTE ON CROSS-WELL GENERALIZATION GAP:
+In offshore oil wells, baseline pressure and thermal profiles vary with depth, reservoir pressure,
+and completion geometry. Instance-level splitting evaluates monitoring of known field assets,
+whereas physical well-disjoint splitting tests transferability to newly drilled/unmonitored assets.

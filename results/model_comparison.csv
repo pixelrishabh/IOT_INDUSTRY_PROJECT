@@ -1,0 +1,7 @@
+Task,Model,Accuracy,Precision,Recall,F1,Macro F1,ROC-AUC,Training Time (s)
+Binary (Normal vs Fault),Random Forest (Balanced),0.7417,0.9072,0.6123,0.7312,0.7413,0.921,8.24
+Binary (Normal vs Fault),HistGradientBoosting,0.7378,0.9473,0.5749,0.7155,0.7361,0.9301,6.46
+Binary (Normal vs Fault),Logistic Regression (Baseline),0.8442,0.884,0.8384,0.8606,0.842,0.8766,4.76
+Multi-Class (Events 0-9),Random Forest (Balanced),0.7276,0.5827,0.5905,0.7108,0.5657,N/A,6.88
+Multi-Class (Events 0-9),HistGradientBoosting,0.7458,0.6544,0.6201,0.7253,0.6172,N/A,20.26
+Multi-Class (Events 0-9),Logistic Regression (Baseline),0.6713,0.5097,0.6022,0.6883,0.5057,N/A,20.03
