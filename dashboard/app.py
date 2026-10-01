@@ -1,6 +1,7 @@
 """
 dashboard/app.py - Industrial IoT Fault Diagnosis & Monitoring Dashboard
 Knowledge-Driven Fault Diagnosis Assistant for Offshore Oil & Gas Production Wells
+Aligned with shadcn-ui Design System (ObservedObserver/streamlit-shadcn-ui)
 Dataset: Petrobras 3W Dataset 2.0.0 (Recorded Real Well Telemetry)
 Pipeline: Telemetry -> EMQX Cloud (MQTT) -> Subscriber -> FaultDetectorPipeline (ML) -> RAG -> LLM -> PostgreSQL
 """
@@ -18,6 +19,13 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import streamlit as st
+
+# Optional shadcn-ui component integration with safe fallbacks
+try:
+    import streamlit_shadcn_ui as ui
+    HAS_SHADCN_UI = True
+except ImportError:
+    HAS_SHADCN_UI = False
 
 from database.db import (
     get_connection,
@@ -38,7 +46,7 @@ from ml.detector import EVENT_MAPPING, NOMINAL_BOUNDS
 
 
 # =========================================================
-# PAGE CONFIGURATION & RESTRAINED INDUSTRIAL STYLING
+# PAGE CONFIGURATION & SHADCN/UI DESIGN SYSTEM ALIGNMENT
 # =========================================================
 st.set_page_config(
     page_title="Knowledge-Driven IoT Fault Diagnosis Assistant",
@@ -47,133 +55,171 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Strict Industrial CSS: Neutral cool-gray background, white cards, subtle borders, status colors
+# shadcn/ui Design Tokens: Slate/Zinc palette, crisp 1px borders, Inter font, 6-8px border radius
 st.markdown("""
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
     /* Global Reset & Streamlit Chrome Removal */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
+    
     .block-container {
-        padding-top: 1.0rem;
-        padding-bottom: 2rem;
-        padding-left: 2.0rem;
-        padding-right: 2.0rem;
-        background-color: #f8fafc;
+        padding-top: 1.2rem;
+        padding-bottom: 2.2rem;
+        padding-left: 2.2rem;
+        padding-right: 2.2rem;
+        background-color: #fafafa;
     }
 
-    /* Typography */
+    /* shadcn Typography */
     body, p, div, span, table {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        color: #0f172a;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: #09090b;
     }
+    
+    code, pre {
+        font-family: 'JetBrains Mono', monospace !important;
+    }
+
     .app-title {
-        font-size: 21px;
+        font-size: 22px;
         font-weight: 700;
-        color: #0f172a;
+        color: #09090b;
         margin: 0;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.025em;
     }
     .app-subtitle {
-        font-size: 13px;
-        color: #475569;
-        margin-top: 2px;
-        margin-bottom: 8px;
+        font-size: 13.5px;
+        color: #71717a;
+        margin-top: 3px;
+        margin-bottom: 10px;
     }
     .source-tag {
-        font-size: 11px;
-        font-weight: 600;
-        color: #0369a1;
+        font-size: 11.5px;
+        font-weight: 500;
+        color: #0284c7;
         background-color: #f0f9ff;
-        border: 1px solid #bae6fd;
-        padding: 3px 8px;
-        border-radius: 4px;
+        border: 1px solid #e0f2fe;
+        padding: 4px 10px;
+        border-radius: 6px;
         display: inline-block;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
     }
 
-    /* Industrial Cards */
-    .ind-card {
+    /* shadcn Card Container */
+    .shadcn-card {
         background-color: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 6px;
-        padding: 12px 14px;
-        margin-bottom: 10px;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+        border: 1px solid #e4e4e7;
+        border-radius: 8px;
+        padding: 16px 18px;
+        margin-bottom: 12px;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
-    .ind-card-title {
+    .shadcn-card:hover {
+        border-color: #cbd5e1;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    }
+    .shadcn-card-title {
         font-size: 11px;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        color: #64748b;
-        margin-bottom: 3px;
+        color: #71717a;
+        margin-bottom: 4px;
     }
-    .ind-card-val {
-        font-size: 20px;
+    .shadcn-card-val {
+        font-size: 22px;
         font-weight: 700;
-        color: #0f172a;
+        color: #09090b;
+        letter-spacing: -0.02em;
     }
-    .ind-card-sub {
-        font-size: 11px;
-        color: #94a3b8;
-        margin-top: 2px;
+    .shadcn-card-sub {
+        font-size: 11.5px;
+        color: #a1a1aa;
+        margin-top: 3px;
     }
 
-    /* Status Badges */
-    .status-pill {
+    /* shadcn Badge Variants */
+    .shadcn-badge {
         display: inline-flex;
         align-items: center;
-        padding: 2px 7px;
-        border-radius: 4px;
+        padding: 2px 8px;
+        border-radius: 9999px;
         font-size: 11px;
         font-weight: 600;
+        letter-spacing: 0.02em;
     }
-    .status-pill-green {
-        background-color: #dcfce7;
-        color: #166534;
-        border: 1px solid #bbf7d0;
+    .badge-default {
+        background-color: #18181b;
+        color: #fafafa;
     }
-    .status-pill-red {
-        background-color: #fee2e2;
+    .badge-secondary {
+        background-color: #f4f4f5;
+        color: #18181b;
+        border: 1px solid #e4e4e7;
+    }
+    .badge-destructive {
+        background-color: #fef2f2;
         color: #991b1b;
         border: 1px solid #fecaca;
     }
-    .status-pill-blue {
-        background-color: #e0f2fe;
-        color: #0369a1;
-        border: 1px solid #bae6fd;
-    }
-
-    /* Status Banners */
-    .banner-anomaly {
-        background-color: #fef2f2;
-        border: 1px solid #fecaca;
-        border-left: 4px solid #dc2626;
-        border-radius: 4px;
-        padding: 12px 16px;
-        margin-bottom: 14px;
-    }
-    .banner-normal {
+    .badge-success {
         background-color: #f0fdf4;
+        color: #166534;
         border: 1px solid #bbf7d0;
-        border-left: 4px solid #16a34a;
-        border-radius: 4px;
-        padding: 12px 16px;
-        margin-bottom: 14px;
+    }
+    .badge-outline {
+        background-color: #ffffff;
+        color: #09090b;
+        border: 1px solid #e4e4e7;
     }
 
-    /* Structured Diagnosis Box */
-    .diag-box {
-        background-color: #f8fafc;
-        border: 1px solid #cbd5e1;
-        border-radius: 4px;
-        padding: 12px 14px;
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    /* shadcn Alert Component */
+    .shadcn-alert-anomaly {
+        background-color: #ffffff;
+        border: 1px solid #fca5a5;
+        border-left: 4px solid #ef4444;
+        border-radius: 8px;
+        padding: 14px 18px;
+        margin-bottom: 16px;
+        box-shadow: 0 1px 3px 0 rgba(239, 68, 68, 0.08);
+    }
+    .shadcn-alert-normal {
+        background-color: #ffffff;
+        border: 1px solid #86efac;
+        border-left: 4px solid #22c55e;
+        border-radius: 8px;
+        padding: 14px 18px;
+        margin-bottom: 16px;
+        box-shadow: 0 1px 3px 0 rgba(34, 197, 94, 0.08);
+    }
+
+    /* shadcn Dossier Report Box */
+    .shadcn-dossier {
+        background-color: #fafafa;
+        border: 1px solid #e4e4e7;
+        border-radius: 6px;
+        padding: 14px 18px;
+        font-family: 'JetBrains Mono', monospace;
         font-size: 12px;
-        color: #1e293b;
-        line-height: 1.5;
+        color: #18181b;
+        line-height: 1.6;
         white-space: pre-wrap;
+    }
+
+    /* Sidebar Clean Styling */
+    section[data-testid="stSidebar"] {
+        background-color: #0f172a;
+        border-right: 1px solid #1e293b;
+    }
+    section[data-testid="stSidebar"] * {
+        color: #f8fafc !important;
+    }
+    section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] * {
+        color: #09090b !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -397,9 +443,9 @@ st.sidebar.divider()
 st.sidebar.markdown("#### System Heartbeat")
 st.sidebar.markdown("""
 <div style="font-size: 12px; line-height: 1.8;">
-    <div><span class="status-pill status-pill-green">ONLINE</span> <b>PostgreSQL</b> (energy_db)</div>
-    <div><span class="status-pill status-pill-green">ONLINE</span> <b>EMQX MQTT</b> (Petrobras Telemetry)</div>
-    <div><span class="status-pill status-pill-blue">READY</span> <b>FastAPI ML</b> (:8000)</div>
+    <div><span class="shadcn-badge badge-success">ONLINE</span> <b>PostgreSQL</b> (energy_db)</div>
+    <div><span class="shadcn-badge badge-success">ONLINE</span> <b>EMQX MQTT</b> (Petrobras Stream)</div>
+    <div><span class="shadcn-badge badge-secondary">READY</span> <b>FastAPI ML</b> (:8000)</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -412,62 +458,75 @@ if auto_refresh:
 # 1. OVERVIEW (PRIMARY OPERATIONAL SURFACE)
 # =========================================================
 if nav == "Overview":
-    # 1. Top KPI status strip
+    # 1. Top shadcn Metric Cards Row
     s1, s2, s3, s4, s5 = st.columns(5)
-    with s1:
-        st.markdown("""
-        <div class="ind-card">
-            <div class="ind-card-title">System Health</div>
-            <div class="ind-card-val" style="color: #16a34a; font-size: 19px;">Operational</div>
-            <div class="ind-card-sub">Pipeline Ingestion Active</div>
-        </div>
-        """, unsafe_allow_html=True)
-    with s2:
-        st.markdown(f"""
-        <div class="ind-card">
-            <div class="ind-card-title">Monitored Assets</div>
-            <div class="ind-card-val">{len(all_wells)}</div>
-            <div class="ind-card-sub">Subsea Production Wells</div>
-        </div>
-        """, unsafe_allow_html=True)
-    with s3:
-        st.markdown(f"""
-        <div class="ind-card">
-            <div class="ind-card-title">Total Records</div>
-            <div class="ind-card-val">{stats['total_records']:,}</div>
-            <div class="ind-card-sub">Telemetry Ingested</div>
-        </div>
-        """, unsafe_allow_html=True)
-    with s4:
-        st.markdown(f"""
-        <div class="ind-card">
-            <div class="ind-card-title">Fault Detections</div>
-            <div class="ind-card-val" style="color: #dc2626;">{stats['total_faults']:,}</div>
-            <div class="ind-card-sub">ML Classified Incidents</div>
-        </div>
-        """, unsafe_allow_html=True)
-    with s5:
-        st.markdown(f"""
-        <div class="ind-card">
-            <div class="ind-card-title">LLM Diagnoses</div>
-            <div class="ind-card-val" style="color: #0284c7;">{stats['total_diagnoses']:,}</div>
-            <div class="ind-card-sub">RAG Syntheses Stored</div>
-        </div>
-        """, unsafe_allow_html=True)
+    
+    if HAS_SHADCN_UI:
+        with s1:
+            ui.metric_card(title="System Health", content="Operational", description="Pipeline ingestion active", key="card_health")
+        with s2:
+            ui.metric_card(title="Monitored Assets", content=f"{len(all_wells)}", description="Subsea production wells", key="card_assets")
+        with s3:
+            ui.metric_card(title="Total Records", content=f"{stats['total_records']:,}", description="Telemetry records stored", key="card_records")
+        with s4:
+            ui.metric_card(title="Fault Detections", content=f"{stats['total_faults']:,}", description="ML classified incidents", key="card_faults")
+        with s5:
+            ui.metric_card(title="LLM Diagnoses", content=f"{stats['total_diagnoses']:,}", description="RAG syntheses logged", key="card_diagnoses")
+    else:
+        with s1:
+            st.markdown("""
+            <div class="shadcn-card">
+                <div class="shadcn-card-title">System Health</div>
+                <div class="shadcn-card-val" style="color: #16a34a; font-size: 19px;">Operational</div>
+                <div class="shadcn-card-sub">Pipeline Ingestion Active</div>
+            </div>
+            """, unsafe_allow_html=True)
+        with s2:
+            st.markdown(f"""
+            <div class="shadcn-card">
+                <div class="shadcn-card-title">Monitored Assets</div>
+                <div class="shadcn-card-val">{len(all_wells)}</div>
+                <div class="shadcn-card-sub">Subsea Production Wells</div>
+            </div>
+            """, unsafe_allow_html=True)
+        with s3:
+            st.markdown(f"""
+            <div class="shadcn-card">
+                <div class="shadcn-card-title">Total Records</div>
+                <div class="shadcn-card-val">{stats['total_records']:,}</div>
+                <div class="shadcn-card-sub">Telemetry Records Stored</div>
+            </div>
+            """, unsafe_allow_html=True)
+        with s4:
+            st.markdown(f"""
+            <div class="shadcn-card">
+                <div class="shadcn-card-title">Fault Detections</div>
+                <div class="shadcn-card-val" style="color: #dc2626;">{stats['total_faults']:,}</div>
+                <div class="shadcn-card-sub">ML Classified Incidents</div>
+            </div>
+            """, unsafe_allow_html=True)
+        with s5:
+            st.markdown(f"""
+            <div class="shadcn-card">
+                <div class="shadcn-card-title">LLM Diagnoses</div>
+                <div class="shadcn-card-val" style="color: #0284c7;">{stats['total_diagnoses']:,}</div>
+                <div class="shadcn-card-sub">RAG Syntheses Logged</div>
+            </div>
+            """, unsafe_allow_html=True)
 
-    # 2. Interactive Incident Selector Bar
+    # 2. Interactive Incident Focus
     recent_faults_list = fetch_recent_incidents_list(limit=30, well_id=active_well)
     
     col_inc_mode, col_inc_pick = st.columns([1, 2.5])
     with col_inc_mode:
         inc_mode = st.radio(
-            "Incident Inspection Focus:",
-            ["🚨 Latest Incident (Auto)", "🔍 Browse Recorded Incidents"],
+            "Incident Focus:",
+            ["Latest Incident (Auto)", "Browse Recorded Incidents"],
             horizontal=True
         )
 
     selected_incident_record = None
-    if inc_mode == "🚨 Latest Incident (Auto)":
+    if inc_mode == "Latest Incident (Auto)":
         selected_incident_record = fetch_latest_anomaly(well_id=active_well)
     else:
         if recent_faults_list:
@@ -476,7 +535,7 @@ if nav == "Overview":
                 for r in recent_faults_list
             }
             with col_inc_pick:
-                chosen_label = st.selectbox("Select Recorded Fault Incident to Inspect:", list(options_map.keys()))
+                chosen_label = st.selectbox("Select Recorded Fault Incident:", list(options_map.keys()))
                 selected_incident_record = options_map[chosen_label]
         else:
             with col_inc_pick:
@@ -510,18 +569,21 @@ if nav == "Overview":
         loc_str = ", ".join(ab_regions) if ab_regions else "All monitored sensor regions within nominal envelopes (Multivariate statistical drift)"
 
         st.markdown(f"""
-        <div class="banner-anomaly">
-            <div style="font-size: 11px; font-weight: 700; color: #b91c1c; text-transform: uppercase; letter-spacing: 0.05em;">Active Detection Event (ID #{anom_id})</div>
-            <div style="font-size: 16px; font-weight: 700; color: #991b1b; margin-top: 3px;">
-                Asset: {anom_well} &nbsp;&bull;&nbsp; Detected Event: <b>{anom_fault}</b> &nbsp;&bull;&nbsp; Confidence: {anom_conf:.1f}% &nbsp;&bull;&nbsp; Timestamp: {anom_time}
+        <div class="shadcn-alert-anomaly">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="shadcn-badge badge-destructive">ACTIVE FAULT EVENT</span>
+                <span style="font-size: 11.5px; color: #71717a;">Record ID #{anom_id} &bull; Detected at {anom_time}</span>
             </div>
-            <div style="font-size: 12px; color: #7f1d1d; margin-top: 4px;">
+            <div style="font-size: 16px; font-weight: 700; color: #991b1b; margin-top: 6px;">
+                Asset: {anom_well} &nbsp;&bull;&nbsp; Detected Event: <b>{anom_fault}</b> &nbsp;&bull;&nbsp; Confidence: {anom_conf:.1f}%
+            </div>
+            <div style="font-size: 12.5px; color: #7f1d1d; margin-top: 5px;">
                 <b>Anomaly Localization:</b> Anomaly localized to sensor/measurement region based on abnormal telemetry: <u>{loc_str}</u>
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-        # 4. Interactive Localization Section: Schematic + Evidence Table
+        # 4. Localization Section: Schematic + Evidence Table
         st.markdown("#### Anomaly Localization & Sensor Evidence")
         st.caption("Cross-referencing ML fault classification with subsea wellbore measurement regions and operational reference envelopes.")
 
@@ -534,7 +596,7 @@ if nav == "Overview":
             fig_sch = go.Figure()
 
             # Background well trajectory / layers
-            fig_sch.add_shape(type="rect", x0=0.46, x1=0.54, y0=0.08, y1=0.78, fillcolor="#e2e8f0", line=dict(color="#94a3b8", width=1.5))
+            fig_sch.add_shape(type="rect", x0=0.46, x1=0.54, y0=0.08, y1=0.78, fillcolor="#f4f4f5", line=dict(color="#d4d4d8", width=1.5))
             fig_sch.add_shape(type="line", x0=0.08, x1=0.92, y0=0.78, line=dict(color="#0284c7", width=2.5, dash="dot")) # Seabed
             fig_sch.add_annotation(x=0.18, y=0.80, text="Seabed Floor (Subsea)", showarrow=False, font=dict(size=10, color="#0284c7", weight="bold"))
 
@@ -558,7 +620,7 @@ if nav == "Overview":
             ]
 
             for node in schematic_nodes:
-                c_fill = "#dc2626" if node["is_ab"] else "#16a34a"
+                c_fill = "#ef4444" if node["is_ab"] else "#22c55e"
                 val_str = f"{temp_row.get(node['name']):.1f}" if pd.notnull(temp_row.get(node['name'])) else "N/A"
                 
                 fig_sch.add_trace(go.Scatter(
@@ -568,7 +630,7 @@ if nav == "Overview":
                     marker=dict(size=22 if node["is_ab"] else 17, color=c_fill, line=dict(color="#ffffff", width=2)),
                     text=[node["name"]],
                     textposition="top center" if node["y"] > 0.5 else "bottom center",
-                    textfont=dict(size=10.5, color="#0f172a", weight="bold"),
+                    textfont=dict(size=10.5, color="#09090b", weight="bold"),
                     hoverinfo="text",
                     hovertext=f"<b>{node['name']}</b> ({node['desc']})<br>Reading: {val_str} {PRIMARY_SENSORS.get(node['name'], {}).get('unit', '')}<br>Status: {'ABNORMAL' if node['is_ab'] else 'NORMAL'}",
                     showlegend=False
@@ -629,7 +691,7 @@ if nav == "Overview":
                             y0=smeta["ref_min"],
                             y1=smeta["ref_max"],
                             line_width=0,
-                            fillcolor="rgba(16, 185, 129, 0.06)",
+                            fillcolor="rgba(34, 197, 94, 0.06)",
                             annotation_text=f"{s} Ref",
                             annotation_position="top left",
                             annotation_font_size=8
@@ -639,10 +701,10 @@ if nav == "Overview":
                 x=target_ts.timestamp() * 1000,
                 line_width=2.2,
                 line_dash="dash",
-                line_color="#dc2626",
+                line_color="#ef4444",
                 annotation_text="Anomaly Window",
                 annotation_position="top right",
-                annotation_font_color="#dc2626",
+                annotation_font_color="#ef4444",
                 annotation_font_weight="bold"
             )
 
@@ -662,13 +724,13 @@ if nav == "Overview":
         st.markdown("##### Diagnosis Assistant")
         raw_diag = diag_obj.get("raw_diagnosis")
         if raw_diag:
-            st.markdown(f'<div class="diag-box">{raw_diag}</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="shadcn-dossier">{raw_diag}</div>', unsafe_allow_html=True)
             sources = diag_obj.get("retrieved_sources", [])
             if sources:
                 st.caption(f"Cited Knowledge Sources: {', '.join(set(sources))}")
         else:
             st.markdown(f"""
-            <div class="diag-box">
+            <div class="shadcn-dossier">
 FAULT ANALYSIS & ENGINEERING SUMMARY (ID #{anom_id})
 --------------------------------------------------------------------------------
 Asset: {anom_well} | Detected Event: {anom_fault} | Status: FAULT CONFIRMED
@@ -695,9 +757,12 @@ Maintain continuous surveillance of high-pressure trip alarms. Verify hydraulic 
 
     else:
         st.markdown("""
-        <div class="banner-normal">
-            <div style="font-size: 11px; font-weight: 700; color: #166534; text-transform: uppercase;">System Nominal</div>
-            <div style="font-size: 15px; font-weight: 700; color: #14532d; margin-top: 2px;">
+        <div class="shadcn-alert-normal">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="shadcn-badge badge-success">SYSTEM NOMINAL</span>
+                <span style="font-size: 11.5px; color: #71717a;">All subsea telemetry channels nominal</span>
+            </div>
+            <div style="font-size: 15px; font-weight: 600; color: #166534; margin-top: 6px;">
                 No active anomalies detected in the selected telemetry stream. All monitored channels operating within baseline envelopes.
             </div>
         </div>
@@ -992,13 +1057,13 @@ elif nav == "Diagnosis History":
             st.markdown("##### Engineering Diagnostic Synthesis")
             raw_rep = d_obj.get("raw_diagnosis")
             if raw_rep:
-                st.markdown(f'<div class="diag-box">{raw_rep}</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="shadcn-dossier">{raw_rep}</div>', unsafe_allow_html=True)
                 sources = d_obj.get("retrieved_sources", [])
                 if sources:
                     st.caption(f"Cited SOP References: {', '.join(set(sources))}")
             else:
                 st.markdown(f"""
-                <div class="diag-box">
+                <div class="shadcn-dossier">
 FAULT DETECTION & LOCALIZATION REPORT (ID #{sel_id})
 --------------------------------------------------------------------------------
 Asset: {target['device_id']}
