@@ -185,3 +185,54 @@ def test_petrobras_replayer_sample_files():
     assert len(samples) >= 8, f"Expected at least 8 event classes in 3W dataset, found {len(samples)}"
     for event_id, path in samples.items():
         assert path.exists(), f"Sample file for event {event_id} does not exist: {path}"
+
+
+def test_mqtt_telemetry_fault_to_diagnosis_flow(detector):
+    """
+    Focused test verifying:
+    MQTT Telemetry Ingestion -> ML Fault Detection -> RAG Knowledge Retrieval -> LLM Diagnosis
+    """
+    from mqtt.subscriber import should_trigger_diagnosis, _last_diagnosis_tracker
+    import time
+
+    # Anomalous telemetry signature corresponding to Severe Slugging / Hydrate
+    fault_telemetry = {
+        "device_id": "WELL-TEST-MQTT-01",
+        "device_type": "oil_well",
+        "timestamp": "2026-10-01T10:00:00",
+        "P-PDG": 33500000.0,
+        "P-TPT": 1200000.0,
+        "T-TPT": 18.0,
+        "P-MON-CKP": 1050000.0,
+        "T-JUS-CKP": 12.0,
+        "P-ANULAR": 800000.0,
+        "T-PDG": 95.0,
+        "QGL": 0.0,
+        "ABER-CKP": 50.0
+    }
+
+    # 1. ML Detection step
+    pred = detector.predict(fault_telemetry, well_id=fault_telemetry["device_id"])
+    assert "status" in pred
+    assert "predicted_event" in pred
+    assert "confidence" in pred
+
+    # 2. Check diagnosis trigger condition
+    well_id = fault_telemetry["device_id"]
+    event_name = pred["predicted_event"]
+    _last_diagnosis_tracker.pop(well_id, None)  # Reset test tracker
+    assert should_trigger_diagnosis(well_id, event_name) is True
+
+    # 3. Trigger diagnosis
+    diag = detector.diagnose(fault_telemetry, well_id=well_id)
+    assert diag is not None
+    assert "raw_diagnosis" in diag
+    assert "retrieved_sources" in diag
+    assert len(diag.get("retrieved_sources", [])) > 0
+    assert "FAULT DETECTION" in diag["raw_diagnosis"]
+    assert "RECOMMENDED CHECKS" in diag["raw_diagnosis"]
+
+    # 4. Verify throttling logic on immediate second call
+    _last_diagnosis_tracker[well_id] = (event_name, time.time())
+    assert should_trigger_diagnosis(well_id, event_name) is False
+
